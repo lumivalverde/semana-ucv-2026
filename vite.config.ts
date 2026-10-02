@@ -9,6 +9,7 @@ const __dirname = path.dirname(__filename);
 
 export default defineConfig(() => {
   return {
+    base: '/semana-ucv-2026/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {

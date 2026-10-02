@@ -1,0 +1,8 @@
+{
+  "name": "Semana de Comunicadores UCV 2026",
+  "description": "Plataforma oficial del Congreso Internacional Académico Semana de Comunicadores UCV 2026: ponencias magistrales, agenda académica, talleres y credencial interactiva.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

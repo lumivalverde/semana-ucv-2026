@@ -41,10 +41,10 @@ export const Agenda: React.FC = () => {
               <button
                 key={day.num}
                 onClick={() => setActiveDay(day.num)}
-                className={`px-5 py-3 rounded-xl font-bold text-sm transition-all whitespace-nowrap cursor-pointer shadow-lg shadow-black ${
+                className={`px-5 py-3 rounded-xl font-bold text-sm transition-all duration-300 whitespace-nowrap cursor-pointer shadow-lg shadow-black ${
                   isActive
-                    ? 'bg-[#7135F5] text-white border-2 border-[#C6FF00] shadow-lg shadow-[#7135F5]/40 scale-105 font-heading font-black'
-                    : 'bg-[#090414] text-slate-300 hover:bg-[#120826] border border-[#7135F5]/35'
+                    ? 'bg-[#C6FF00] text-black border-2 border-[#C6FF00] shadow-lg shadow-[#C6FF00]/25 scale-105 font-heading font-black'
+                    : 'bg-[#090414] text-slate-200 hover:bg-[#C6FF00] hover:text-black border border-[#7135F5]/50 hover:border-[#C6FF00]'
                 }`}
               >
                 {day.label}

@@ -105,17 +105,17 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRegister }) => {
               <button
                 onClick={onOpenRegister}
                 id="hero-register-btn"
-                className="w-full sm:w-auto px-8 py-4 bg-[#7135F5] hover:bg-[#8349fa] text-white font-heading font-black text-base uppercase rounded-xl border border-[#C6FF00]/50 shadow-2xl shadow-[#7135F5]/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3 cursor-pointer group"
+                className="w-full sm:w-auto px-8 py-4 bg-[#C6FF00] hover:bg-[#b0e600] text-black font-heading font-black text-base uppercase rounded-xl border-2 border-[#C6FF00] shadow-2xl shadow-[#C6FF00]/25 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-3 cursor-pointer group"
               >
                 <span>Reserva tu Entrada</span>
-                <ArrowRight className="w-5 h-5 text-[#C6FF00] group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-5 h-5 text-black group-hover:translate-x-1 transition-transform" />
               </button>
               <button
                 onClick={scrollToAgenda}
                 id="hero-agenda-btn"
-                className="w-full sm:w-auto px-8 py-4 bg-[#090414] hover:bg-[#120826] text-white font-semibold rounded-xl border border-[#7135F5]/50 shadow-lg shadow-black transition-all flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full sm:w-auto px-8 py-4 bg-[#090414] hover:bg-[#C6FF00] text-white hover:text-black font-heading font-bold text-base uppercase rounded-xl border border-[#7135F5]/60 hover:border-[#C6FF00] shadow-lg shadow-black hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer group"
               >
-                <Play className="w-4 h-4 text-[#C6FF00] fill-current" />
+                <Play className="w-4 h-4 text-[#C6FF00] group-hover:text-black fill-current transition-colors" />
                 <span>Explorar Agenda</span>
               </button>
             </div>

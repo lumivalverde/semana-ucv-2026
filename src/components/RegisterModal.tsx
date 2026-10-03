@@ -312,9 +312,9 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose, o
                   <button
                     type="submit"
                     id="btn-confirm-registration"
-                    className="w-full py-3.5 bg-[#7135F5] hover:bg-[#864bfa] text-white font-heading font-black text-sm uppercase rounded-xl border border-[#C6FF00]/40 shadow-xl shadow-[#7135F5]/40 transition-all hover:scale-[1.01] active:scale-95 cursor-pointer flex items-center justify-center gap-2"
+                    className="w-full py-3.5 bg-[#090414] hover:bg-[#C6FF00] text-white hover:text-black font-heading font-black text-sm uppercase rounded-xl border-2 border-[#C6FF00] shadow-xl shadow-black transition-all duration-300 hover:scale-[1.01] active:scale-95 cursor-pointer flex items-center justify-center gap-2 group"
                   >
-                    <Ticket className="w-5 h-5 text-[#C6FF00]" />
+                    <Ticket className="w-5 h-5 text-[#C6FF00] group-hover:text-black transition-colors" />
                     <span>Confirmar Inscripción Gratuita</span>
                   </button>
                 ) : (
@@ -324,23 +324,23 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose, o
                       id="btn-download-comunicard"
                       onClick={handleDownloadComuniCard}
                       disabled={isGeneratingPdf}
-                      className="w-full py-4 bg-[#7135F5] hover:bg-[#864bfa] text-white font-heading font-black text-sm uppercase rounded-xl shadow-2xl shadow-[#7135F5]/50 border border-[#C6FF00] transition-all hover:scale-[1.01] active:scale-95 cursor-pointer flex items-center justify-center gap-3 animate-in fade-in"
+                      className="w-full py-4 bg-[#090414] hover:bg-[#C6FF00] text-white hover:text-black font-heading font-black text-sm uppercase rounded-xl shadow-2xl shadow-black border-2 border-[#C6FF00] transition-all duration-300 hover:scale-[1.01] active:scale-95 cursor-pointer flex items-center justify-center gap-3 animate-in fade-in group"
                     >
                       {isGeneratingPdf ? (
                         <>
-                          <Sparkles className="w-5 h-5 animate-spin text-[#C6FF00]" />
+                          <Sparkles className="w-5 h-5 animate-spin text-[#C6FF00] group-hover:text-black transition-colors" />
                           <span>Generando PDF oficial...</span>
                         </>
                       ) : (
                         <>
-                          <Download className="w-5 h-5 text-[#C6FF00]" />
+                          <Download className="w-5 h-5 text-[#C6FF00] group-hover:text-black transition-colors" />
                           <span>Descargar tu ComuniCard</span>
                         </>
                       )}
                     </button>
 
                     {downloadCompleted && (
-                      <div className="p-3 rounded-xl bg-[#0F0721] border border-[#C6FF00]/50 text-white text-xs flex items-center justify-between gap-2 animate-in fade-in">
+                      <div className="p-3 rounded-xl bg-[#090414] border border-[#C6FF00] text-white text-xs flex items-center justify-between gap-2 animate-in fade-in">
                         <div className="flex items-center gap-2">
                           <FileCheck className="w-4 h-4 text-[#C6FF00] shrink-0" />
                           <span>ComuniCard descargada en PDF. ¡Todo listo para tu ingreso!</span>
@@ -348,7 +348,7 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose, o
                         <button
                           type="button"
                           onClick={handleDownloadComuniCard}
-                          className="text-xs text-[#C6FF00] underline hover:text-white font-semibold cursor-pointer shrink-0"
+                          className="px-2.5 py-1 rounded-lg bg-[#120826] hover:bg-[#C6FF00] text-[#C6FF00] hover:text-black border border-[#C6FF00]/50 text-xs font-bold cursor-pointer shrink-0 transition-all duration-300"
                         >
                           Descargar de nuevo
                         </button>

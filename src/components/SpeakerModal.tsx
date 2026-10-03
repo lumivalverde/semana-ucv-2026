@@ -116,7 +116,7 @@ export const SpeakerModal: React.FC<SpeakerModalProps> = ({ speaker, onClose }) 
                   </span>
                   <button
                     onClick={onClose}
-                    className="px-6 py-2.5 bg-[#7135F5] hover:bg-[#864bfa] text-white font-heading font-black text-xs uppercase rounded-xl transition-all cursor-pointer shadow-lg shadow-[#7135F5]/40 active:scale-95 border border-[#C6FF00]/40"
+                    className="px-6 py-2.5 bg-[#090414] hover:bg-[#C6FF00] text-white hover:text-black font-heading font-black text-xs uppercase rounded-xl transition-all duration-300 cursor-pointer shadow-lg shadow-black active:scale-95 border border-[#C6FF00]"
                   >
                     Cerrar Ventana
                   </button>

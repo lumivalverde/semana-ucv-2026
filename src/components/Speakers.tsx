@@ -46,18 +46,18 @@ export const Speakers: React.FC = () => {
             <button
               onClick={scrollLeft}
               id="speaker-prev"
-              className="w-12 h-12 rounded-xl bg-[#090414] border border-[#7135F5]/50 text-white hover:bg-[#7135F5] hover:text-white hover:border-[#C6FF00] shadow-lg shadow-black transition-all flex items-center justify-center focus:outline-none cursor-pointer"
+              className="w-12 h-12 rounded-xl bg-[#090414] border border-[#7135F5]/50 text-white hover:bg-[#C6FF00] hover:text-black hover:border-[#C6FF00] shadow-lg shadow-black transition-all duration-300 flex items-center justify-center focus:outline-none cursor-pointer group"
               aria-label="Anterior"
             >
-              <ChevronLeft className="w-5 h-5 text-white" />
+              <ChevronLeft className="w-5 h-5 text-white group-hover:text-black transition-colors" />
             </button>
             <button
               onClick={scrollRight}
               id="speaker-next"
-              className="w-12 h-12 rounded-xl bg-[#090414] border border-[#7135F5]/50 text-white hover:bg-[#7135F5] hover:text-white hover:border-[#C6FF00] shadow-lg shadow-black transition-all flex items-center justify-center focus:outline-none cursor-pointer"
+              className="w-12 h-12 rounded-xl bg-[#090414] border border-[#7135F5]/50 text-white hover:bg-[#C6FF00] hover:text-black hover:border-[#C6FF00] shadow-lg shadow-black transition-all duration-300 flex items-center justify-center focus:outline-none cursor-pointer group"
               aria-label="Siguiente"
             >
-              <ChevronRight className="w-5 h-5 text-white" />
+              <ChevronRight className="w-5 h-5 text-white group-hover:text-black transition-colors" />
             </button>
           </div>
         </div>

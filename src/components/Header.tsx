@@ -95,9 +95,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenRegister }) => {
                 onOpenRegister();
               }}
               id="mobile-register-btn"
-              className="flex items-center justify-center w-full py-3 bg-[#7135F5] hover:bg-[#864bfa] text-white font-heading font-black text-sm uppercase rounded-xl border border-[#C6FF00]/40 shadow-lg shadow-[#7135F5]/40 transition-colors cursor-pointer"
+              className="flex items-center justify-center w-full py-3 bg-[#090414] hover:bg-[#C6FF00] text-white hover:text-black font-heading font-black text-sm uppercase rounded-xl border border-[#C6FF00] shadow-lg shadow-black transition-all duration-300 cursor-pointer group"
             >
-              <span className="text-[#C6FF00]">Inscribirme Ahora</span>
+              <span className="text-[#C6FF00] group-hover:text-black transition-colors">Inscribirme Ahora</span>
             </button>
           </div>
         </div>

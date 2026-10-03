@@ -174,7 +174,7 @@ export const AGENDA_DATA: Record<number, AgendaItem[]> = {
       time: '06:00 PM',
       title: 'Ceremonia de Clausura, Premiación y Noche de Gala Vallejiana',
       speaker: 'Comité Organizador & Elenco Cultural UCV',
-      location: 'Plaza Principal Campus UCV',
+      location: 'Plaza Principal Campus UCV - Los Olivos',
       type: 'ceremonia'
     }
   ]

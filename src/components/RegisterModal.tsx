@@ -39,8 +39,6 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose, o
     };
   }, [isOpen, onClose]);
 
-  // AnimatePresence handles mounting and unmounting transitions smoothly
-
   const validateAllFields = () => {
     const newErrors: { [key: string]: string } = {};
 
@@ -72,20 +70,24 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose, o
       return;
     }
 
-    const fullName = `${formData.names} ${formData.surnames}`.trim();
     setIsConfirmed(true);
-    if (fullName) {
-      onSuccess(fullName);
-    }
+    onSuccess(`${formData.names} ${formData.surnames}`);
   };
 
   const handleDownloadComuniCard = async () => {
-    setIsGeneratingPdf(true);
     try {
-      await generateComuniCardPdf(formData);
+      setIsGeneratingPdf(true);
+      await generateComuniCardPdf({
+        names: formData.names,
+        surnames: formData.surnames,
+        email: formData.email,
+        dniOrCode: formData.dniOrCode,
+        cycle: formData.cycle,
+        campus: formData.campusOrAffiliation,
+      });
       setDownloadCompleted(true);
-    } catch (error) {
-      console.error('Error al generar la credencial ComuniCard:', error);
+    } catch (err) {
+      console.error('Error al generar la credencial PDF:', err);
     } finally {
       setIsGeneratingPdf(false);
     }
@@ -95,9 +97,9 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose, o
     setFormData((prev) => ({ ...prev, [field]: value }));
     if (errors[field]) {
       setErrors((prev) => {
-        const next = { ...prev };
-        delete next[field];
-        return next;
+        const updated = { ...prev };
+        delete updated[field];
+        return updated;
       });
     }
   };
@@ -106,7 +108,7 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose, o
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          id="registro-modal"
+          id="registration-modal"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -114,249 +116,251 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose, o
           onClick={(e) => {
             if (e.target === e.currentTarget) onClose();
           }}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto bg-[#050B18]/80 backdrop-blur-xl"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto bg-black/92 backdrop-blur-2xl"
         >
+          {/* Floating Modal Box with Custom Glass Style */}
           <motion.div
-            id="registro-modal-card"
-            initial={{ opacity: 0, scale: 0.91, y: 24 }}
+            id="register-modal-container"
+            initial={{ opacity: 0, scale: 0.9, y: 24 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.93, y: 16 }}
+            exit={{ opacity: 0, scale: 0.92, y: 16 }}
             transition={{
               duration: 0.28,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="relative glass-modal w-full max-w-2xl rounded-3xl p-6 sm:p-10 border border-[#D91B24]/60 shadow-[0_0_60px_-15px_rgba(217,27,36,0.3)] z-10 my-auto max-h-[92vh] overflow-y-auto"
+            className="relative glass-modal w-full max-w-lg rounded-3xl p-6 sm:p-8 md:p-10 border border-[#7135F5]/50 shadow-[0_20px_70px_rgba(0,0,0,0.98)] z-10 my-auto bg-[#080312]"
           >
-        {/* Close Button */}
-        <button
-          onClick={onClose}
-          id="register-modal-close"
-          className="absolute top-4 right-4 w-10 h-10 rounded-full bg-[#111F42] border border-[#1E3266] text-slate-300 hover:text-white hover:bg-[#D91B24] transition-colors flex items-center justify-center z-20 cursor-pointer"
-          aria-label="Cerrar modal de inscripción"
-        >
-          <X className="w-5 h-5" />
-        </button>
+            {/* Close Button */}
+            <button
+              onClick={onClose}
+              id="register-modal-close"
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 rounded-full bg-[#120826] border border-[#7135F5]/60 text-white hover:text-[#111111] hover:bg-[#C6FF00] hover:border-[#C6FF00] transition-colors flex items-center justify-center cursor-pointer shadow-md shadow-black"
+              aria-label="Cerrar modal"
+            >
+              <X className="w-5 h-5" />
+            </button>
 
-        <div className="text-center mb-6">
-          <span className="inline-flex items-center gap-1 text-[#D91B24] font-bold text-xs uppercase tracking-widest bg-[#D91B24]/10 px-3 py-1 rounded-full border border-[#D91B24]/20">
-            <Sparkles className="w-3.5 h-3.5" />
-            Inscripciones Abiertas
-          </span>
-          <h2 className="font-heading font-black text-2xl sm:text-4xl text-white mt-2">
-            Asegura tu Cupo en la Semana de Comunicadores
-          </h2>
-          <p className="text-slate-400 text-xs sm:text-sm mt-2 max-w-lg mx-auto">
-            Completa tus datos para registrar tu participación y obtener tu credencial oficial del congreso.
-          </p>
-        </div>
-
-        {/* Confirmation Status Banner (Shown once validated and confirmed) */}
-        {isConfirmed && (
-          <div
-            id="confirmation-banner"
-            className="mb-5 p-4 rounded-2xl bg-[#111F42]/80 border border-emerald-500/50 text-slate-200 flex items-start gap-3 animate-in fade-in"
-          >
-            <CheckCircle2 className="w-6 h-6 text-emerald-400 shrink-0 mt-0.5" />
-            <div className="text-xs sm:text-sm">
-              <div className="font-bold text-white text-sm sm:text-base">
-                ¡Inscripción Confirmada con Éxito!
+            {/* Modal Header */}
+            <div className="text-center mb-6">
+              <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#7135F5]/20 text-[#C6FF00] text-xs font-semibold uppercase tracking-wider mb-2 border border-[#7135F5]/50 shadow-sm">
+                <Sparkles className="w-3.5 h-3.5 text-[#C6FF00]" />
+                Acreditación Exclusiva
               </div>
-              <p className="text-slate-300 mt-0.5">
-                Tus datos han sido registrados en la base oficial del congreso. Haz clic en el botón de abajo para descargar tu credencial <span className="text-[#D91B24] font-semibold">ComuniCard</span> en PDF.
+              <h3 className="font-heading font-black text-2xl sm:text-3xl text-white tracking-tight">
+                Inscripción al <span className="text-[#9B6CFF]">Congreso</span>
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-300 mt-1 font-normal">
+                Completa tus datos para confirmar tu participación y generar tu{' '}
+                <strong className="text-[#C6FF00]">ComuniCard</strong> oficial de acceso.
               </p>
             </div>
-          </div>
-        )}
 
-        <form id="registration-form" onSubmit={handleConfirmRegistration} className="space-y-4 sm:space-y-5">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-xs font-semibold text-slate-300 uppercase mb-1.5">
-                Nombres
-              </label>
-              <input
-                type="text"
-                value={formData.names}
-                disabled={isConfirmed}
-                onChange={(e) => handleFieldChange('names', e.target.value)}
-                placeholder="Ej. Valeria"
-                className={`w-full px-4 py-2.5 bg-[#050B18] border rounded-xl text-white focus:outline-none text-sm transition-colors ${
-                  errors.names
-                    ? 'border-[#D91B24] focus:border-[#D91B24]'
-                    : 'border-[#1E3266] focus:border-[#D91B24]'
-                } ${isConfirmed ? 'opacity-85 cursor-default' : ''}`}
-              />
-              {errors.names && (
-                <p className="text-xs text-[#D91B24] mt-1 flex items-center gap-1 font-medium">
-                  <AlertCircle className="w-3.5 h-3.5" /> {errors.names}
-                </p>
-              )}
-            </div>
-            <div>
-              <label className="block text-xs font-semibold text-slate-300 uppercase mb-1.5">
-                Apellidos
-              </label>
-              <input
-                type="text"
-                value={formData.surnames}
-                disabled={isConfirmed}
-                onChange={(e) => handleFieldChange('surnames', e.target.value)}
-                placeholder="Ej. Mendoza Sánchez"
-                className={`w-full px-4 py-2.5 bg-[#050B18] border rounded-xl text-white focus:outline-none text-sm transition-colors ${
-                  errors.surnames
-                    ? 'border-[#D91B24] focus:border-[#D91B24]'
-                    : 'border-[#1E3266] focus:border-[#D91B24]'
-                } ${isConfirmed ? 'opacity-85 cursor-default' : ''}`}
-              />
-              {errors.surnames && (
-                <p className="text-xs text-[#D91B24] mt-1 flex items-center gap-1 font-medium">
-                  <AlertCircle className="w-3.5 h-3.5" /> {errors.surnames}
-                </p>
-              )}
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-xs font-semibold text-slate-300 uppercase mb-1.5">
-                Correo Electrónico
-              </label>
-              <input
-                type="email"
-                value={formData.email}
-                disabled={isConfirmed}
-                onChange={(e) => handleFieldChange('email', e.target.value)}
-                placeholder="correo@ucvvirtual.edu.pe"
-                className={`w-full px-4 py-2.5 bg-[#050B18] border rounded-xl text-white focus:outline-none text-sm transition-colors ${
-                  errors.email
-                    ? 'border-[#D91B24] focus:border-[#D91B24]'
-                    : 'border-[#1E3266] focus:border-[#D91B24]'
-                } ${isConfirmed ? 'opacity-85 cursor-default' : ''}`}
-              />
-              {errors.email && (
-                <p className="text-xs text-[#D91B24] mt-1 flex items-center gap-1 font-medium">
-                  <AlertCircle className="w-3.5 h-3.5" /> {errors.email}
-                </p>
-              )}
-            </div>
-            <div>
-              <label className="block text-xs font-semibold text-slate-300 uppercase mb-1.5">
-                Código UCV / DNI
-              </label>
-              <input
-                type="text"
-                value={formData.dniOrCode}
-                disabled={isConfirmed}
-                onChange={(e) => handleFieldChange('dniOrCode', e.target.value)}
-                placeholder="70123456"
-                className={`w-full px-4 py-2.5 bg-[#050B18] border rounded-xl text-white focus:outline-none text-sm transition-colors ${
-                  errors.dniOrCode
-                    ? 'border-[#D91B24] focus:border-[#D91B24]'
-                    : 'border-[#1E3266] focus:border-[#D91B24]'
-                } ${isConfirmed ? 'opacity-85 cursor-default' : ''}`}
-              />
-              {errors.dniOrCode && (
-                <p className="text-xs text-[#D91B24] mt-1 flex items-center gap-1 font-medium">
-                  <AlertCircle className="w-3.5 h-3.5" /> {errors.dniOrCode}
-                </p>
-              )}
-            </div>
-          </div>
-
-          <div>
-            <label htmlFor="student-cycle" className="block text-xs font-semibold text-slate-300 uppercase mb-1.5">
-              Ciclo del Alumno
-            </label>
-            <div className="relative">
-              <select
-                id="student-cycle"
-                value={formData.cycle}
-                disabled={isConfirmed}
-                onChange={(e) => handleFieldChange('cycle', e.target.value)}
-                className={`w-full px-4 py-2.5 bg-[#050B18] border rounded-xl text-white focus:outline-none text-sm appearance-none cursor-pointer transition-colors ${
-                  errors.cycle
-                    ? 'border-[#D91B24] focus:border-[#D91B24]'
-                    : 'border-[#1E3266] focus:border-[#D91B24]'
-                } ${isConfirmed ? 'opacity-85 cursor-default' : ''}`}
+            {/* Confirmation Status Banner */}
+            {isConfirmed && (
+              <div
+                id="confirmation-banner"
+                className="mb-5 p-4 rounded-2xl bg-[#0F0721] border border-[#C6FF00]/80 text-white flex items-start gap-3 animate-in fade-in shadow-lg shadow-black"
               >
-                <option value="I">Ciclo I</option>
-                <option value="II">Ciclo II</option>
-                <option value="III">Ciclo III</option>
-                <option value="IV">Ciclo IV</option>
-                <option value="V">Ciclo V</option>
-                <option value="VI">Ciclo VI</option>
-                <option value="VII">Ciclo VII</option>
-                <option value="VIII">Ciclo VIII</option>
-                <option value="IX">Ciclo IX</option>
-                <option value="X">Ciclo X</option>
-              </select>
-              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-400">
-                <GraduationCap className="w-4 h-4 text-[#D91B24]" />
+                <CheckCircle2 className="w-6 h-6 text-[#C6FF00] shrink-0 mt-0.5" />
+                <div className="text-xs sm:text-sm">
+                  <div className="font-heading font-black text-white text-sm sm:text-base">
+                    ¡Inscripción Confirmada con Éxito!
+                  </div>
+                  <p className="text-slate-300 mt-0.5">
+                    Tus datos han sido registrados en la base oficial del congreso. Haz clic en el botón de abajo para descargar tu credencial <span className="text-[#C6FF00] font-bold">ComuniCard</span> en PDF.
+                  </p>
+                </div>
               </div>
-            </div>
-            {errors.cycle && (
-              <p className="text-xs text-[#D91B24] mt-1 flex items-center gap-1 font-medium">
-                <AlertCircle className="w-3.5 h-3.5" /> {errors.cycle}
-              </p>
             )}
-          </div>
 
-          {/* Action Button: Changes dynamically to "Descargar tu ComuniCard" once confirmed */}
-          <div className="pt-2">
-            {!isConfirmed ? (
-              <button
-                type="submit"
-                id="btn-confirm-registration"
-                className="w-full py-3.5 bg-[#D91B24] hover:bg-red-600 text-white font-bold text-base rounded-xl shadow-xl shadow-[#D91B24]/30 transition-all hover:scale-[1.01] active:scale-95 cursor-pointer flex items-center justify-center gap-2"
-              >
-                <Ticket className="w-5 h-5" />
-                <span>Confirmar Inscripción Gratuita</span>
-              </button>
-            ) : (
-              <div className="space-y-3">
-                <button
-                  type="button"
-                  id="btn-download-comunicard"
-                  onClick={handleDownloadComuniCard}
-                  disabled={isGeneratingPdf}
-                  className="w-full py-4 bg-gradient-to-r from-emerald-600 via-green-600 to-emerald-700 hover:from-emerald-500 hover:via-green-500 hover:to-emerald-600 text-white font-bold text-base rounded-xl shadow-2xl shadow-emerald-600/40 border border-emerald-400/30 transition-all hover:scale-[1.01] active:scale-95 cursor-pointer flex items-center justify-center gap-3 animate-in fade-in"
-                >
-                  {isGeneratingPdf ? (
-                    <>
-                      <Sparkles className="w-5 h-5 animate-spin" />
-                      <span>Generando PDF oficial...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Download className="w-5 h-5" />
-                      <span>Descargar tu ComuniCard</span>
-                    </>
+            <form id="registration-form" onSubmit={handleConfirmRegistration} className="space-y-4 sm:space-y-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-semibold text-slate-300 uppercase mb-1.5">
+                    Nombres
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.names}
+                    disabled={isConfirmed}
+                    onChange={(e) => handleFieldChange('names', e.target.value)}
+                    placeholder="Ej. Valeria"
+                    className={`w-full px-4 py-2.5 bg-[#030108] border rounded-xl text-white focus:outline-none text-sm transition-colors placeholder:text-slate-600 shadow-inner ${
+                      errors.names
+                        ? 'border-[#C6FF00] focus:border-[#C6FF00]'
+                        : 'border-[#7135F5]/40 focus:border-[#C6FF00]'
+                    } ${isConfirmed ? 'opacity-85 cursor-default' : ''}`}
+                  />
+                  {errors.names && (
+                    <p className="text-xs text-[#C6FF00] mt-1 flex items-center gap-1 font-semibold">
+                      <AlertCircle className="w-3.5 h-3.5" /> {errors.names}
+                    </p>
                   )}
-                </button>
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-slate-300 uppercase mb-1.5">
+                    Apellidos
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.surnames}
+                    disabled={isConfirmed}
+                    onChange={(e) => handleFieldChange('surnames', e.target.value)}
+                    placeholder="Ej. Mendoza Sánchez"
+                    className={`w-full px-4 py-2.5 bg-[#030108] border rounded-xl text-white focus:outline-none text-sm transition-colors placeholder:text-slate-600 shadow-inner ${
+                      errors.surnames
+                        ? 'border-[#C6FF00] focus:border-[#C6FF00]'
+                        : 'border-[#7135F5]/40 focus:border-[#C6FF00]'
+                    } ${isConfirmed ? 'opacity-85 cursor-default' : ''}`}
+                  />
+                  {errors.surnames && (
+                    <p className="text-xs text-[#C6FF00] mt-1 flex items-center gap-1 font-semibold">
+                      <AlertCircle className="w-3.5 h-3.5" /> {errors.surnames}
+                    </p>
+                  )}
+                </div>
+              </div>
 
-                {downloadCompleted && (
-                  <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs flex items-center justify-between gap-2 animate-in fade-in">
-                    <div className="flex items-center gap-2">
-                      <FileCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-                      <span>ComuniCard descargada en PDF. ¡Todo listo para tu ingreso!</span>
-                    </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-semibold text-slate-300 uppercase mb-1.5">
+                    Correo Electrónico
+                  </label>
+                  <input
+                    type="email"
+                    value={formData.email}
+                    disabled={isConfirmed}
+                    onChange={(e) => handleFieldChange('email', e.target.value)}
+                    placeholder="correo@ucvvirtual.edu.pe"
+                    className={`w-full px-4 py-2.5 bg-[#030108] border rounded-xl text-white focus:outline-none text-sm transition-colors placeholder:text-slate-600 shadow-inner ${
+                      errors.email
+                        ? 'border-[#C6FF00] focus:border-[#C6FF00]'
+                        : 'border-[#7135F5]/40 focus:border-[#C6FF00]'
+                    } ${isConfirmed ? 'opacity-85 cursor-default' : ''}`}
+                  />
+                  {errors.email && (
+                    <p className="text-xs text-[#C6FF00] mt-1 flex items-center gap-1 font-semibold">
+                      <AlertCircle className="w-3.5 h-3.5" /> {errors.email}
+                    </p>
+                  )}
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-slate-300 uppercase mb-1.5">
+                    Código UCV / DNI
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.dniOrCode}
+                    disabled={isConfirmed}
+                    onChange={(e) => handleFieldChange('dniOrCode', e.target.value)}
+                    placeholder="70123456"
+                    className={`w-full px-4 py-2.5 bg-[#030108] border rounded-xl text-white focus:outline-none text-sm transition-colors placeholder:text-slate-600 shadow-inner ${
+                      errors.dniOrCode
+                        ? 'border-[#C6FF00] focus:border-[#C6FF00]'
+                        : 'border-[#7135F5]/40 focus:border-[#C6FF00]'
+                    } ${isConfirmed ? 'opacity-85 cursor-default' : ''}`}
+                  />
+                  {errors.dniOrCode && (
+                    <p className="text-xs text-[#C6FF00] mt-1 flex items-center gap-1 font-semibold">
+                      <AlertCircle className="w-3.5 h-3.5" /> {errors.dniOrCode}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="student-cycle" className="block text-xs font-semibold text-slate-300 uppercase mb-1.5">
+                  Ciclo del Alumno
+                </label>
+                <div className="relative">
+                  <select
+                    id="student-cycle"
+                    value={formData.cycle}
+                    disabled={isConfirmed}
+                    onChange={(e) => handleFieldChange('cycle', e.target.value)}
+                    className={`w-full px-4 py-2.5 bg-[#030108] border rounded-xl text-white focus:outline-none text-sm appearance-none cursor-pointer transition-colors shadow-inner ${
+                      errors.cycle
+                        ? 'border-[#C6FF00] focus:border-[#C6FF00]'
+                        : 'border-[#7135F5]/40 focus:border-[#C6FF00]'
+                    } ${isConfirmed ? 'opacity-85 cursor-default' : ''}`}
+                  >
+                    <option value="I" className="bg-[#030108] text-white">Ciclo I</option>
+                    <option value="II" className="bg-[#030108] text-white">Ciclo II</option>
+                    <option value="III" className="bg-[#030108] text-white">Ciclo III</option>
+                    <option value="IV" className="bg-[#030108] text-white">Ciclo IV</option>
+                    <option value="V" className="bg-[#030108] text-white">Ciclo V</option>
+                    <option value="VI" className="bg-[#030108] text-white">Ciclo VI</option>
+                    <option value="VII" className="bg-[#030108] text-white">Ciclo VII</option>
+                    <option value="VIII" className="bg-[#030108] text-white">Ciclo VIII</option>
+                    <option value="IX" className="bg-[#030108] text-white">Ciclo IX</option>
+                    <option value="X" className="bg-[#030108] text-white">Ciclo X</option>
+                  </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-[#C6FF00]">
+                    <GraduationCap className="w-4 h-4 text-[#C6FF00]" />
+                  </div>
+                </div>
+                {errors.cycle && (
+                  <p className="text-xs text-[#C6FF00] mt-1 flex items-center gap-1 font-semibold">
+                    <AlertCircle className="w-3.5 h-3.5" /> {errors.cycle}
+                  </p>
+                )}
+              </div>
+
+              {/* Action Button */}
+              <div className="pt-2">
+                {!isConfirmed ? (
+                  <button
+                    type="submit"
+                    id="btn-confirm-registration"
+                    className="w-full py-3.5 bg-[#7135F5] hover:bg-[#864bfa] text-white font-heading font-black text-sm uppercase rounded-xl border border-[#C6FF00]/40 shadow-xl shadow-[#7135F5]/40 transition-all hover:scale-[1.01] active:scale-95 cursor-pointer flex items-center justify-center gap-2"
+                  >
+                    <Ticket className="w-5 h-5 text-[#C6FF00]" />
+                    <span>Confirmar Inscripción Gratuita</span>
+                  </button>
+                ) : (
+                  <div className="space-y-3">
                     <button
                       type="button"
+                      id="btn-download-comunicard"
                       onClick={handleDownloadComuniCard}
-                      className="text-xs text-white underline hover:text-emerald-200 font-semibold cursor-pointer shrink-0"
+                      disabled={isGeneratingPdf}
+                      className="w-full py-4 bg-[#7135F5] hover:bg-[#864bfa] text-white font-heading font-black text-sm uppercase rounded-xl shadow-2xl shadow-[#7135F5]/50 border border-[#C6FF00] transition-all hover:scale-[1.01] active:scale-95 cursor-pointer flex items-center justify-center gap-3 animate-in fade-in"
                     >
-                      Descargar de nuevo
+                      {isGeneratingPdf ? (
+                        <>
+                          <Sparkles className="w-5 h-5 animate-spin text-[#C6FF00]" />
+                          <span>Generando PDF oficial...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Download className="w-5 h-5 text-[#C6FF00]" />
+                          <span>Descargar tu ComuniCard</span>
+                        </>
+                      )}
                     </button>
+
+                    {downloadCompleted && (
+                      <div className="p-3 rounded-xl bg-[#0F0721] border border-[#C6FF00]/50 text-white text-xs flex items-center justify-between gap-2 animate-in fade-in">
+                        <div className="flex items-center gap-2">
+                          <FileCheck className="w-4 h-4 text-[#C6FF00] shrink-0" />
+                          <span>ComuniCard descargada en PDF. ¡Todo listo para tu ingreso!</span>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={handleDownloadComuniCard}
+                          className="text-xs text-[#C6FF00] underline hover:text-white font-semibold cursor-pointer shrink-0"
+                        >
+                          Descargar de nuevo
+                        </button>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
-            )}
-          </div>
-        </form>
+            </form>
           </motion.div>
         </motion.div>
       )}
     </AnimatePresence>
   );
 };
-

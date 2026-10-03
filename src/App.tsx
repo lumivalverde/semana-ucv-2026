@@ -4,7 +4,6 @@ import { Hero } from './components/Hero';
 import { Stats } from './components/Stats';
 import { Speakers } from './components/Speakers';
 import { Agenda } from './components/Agenda';
-import { Workshops } from './components/Workshops';
 import { SponsorsMarquee } from './components/SponsorsMarquee';
 import { Footer } from './components/Footer';
 import { RegisterModal } from './components/RegisterModal';
@@ -18,12 +17,12 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#050B18] text-slate-100 font-sans selection:bg-[#D91B24] selection:text-white">
+    <div className="min-h-screen bg-[#030108] text-white font-sans selection:bg-[#C6FF00] selection:text-[#111111]">
       {/* Navigation Header */}
       <Header onOpenRegister={() => setIsRegisterOpen(true)} />
 
       {/* Hero Section with Live Countdown */}
-      <main>
+      <main className="divide-y divide-[#7135F5]/20">
         <Hero onOpenRegister={() => setIsRegisterOpen(true)} />
 
         {/* Highlighted Congress Metrics */}
@@ -34,9 +33,6 @@ export default function App() {
 
         {/* Academic Program Agenda by Days */}
         <Agenda />
-
-        {/* Practical Workshops */}
-        <Workshops onOpenRegister={() => setIsRegisterOpen(true)} />
 
         {/* Sponsors & Media Partners Marquee */}
         <SponsorsMarquee />

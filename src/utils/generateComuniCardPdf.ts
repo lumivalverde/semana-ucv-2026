@@ -11,8 +11,14 @@ export interface ComuniCardData {
 }
 
 /**
- * Generates an ultra high-resolution ComuniCard PDF with exact website color palette:
- * Navy: #050B18, Card: #0A152E, BlueCard: #111F42, Border: #1E3266, Red: #D91B24
+ * Generates an ultra high-resolution ComuniCard PDF with dark background, violet structure and neon accents:
+ * Dark Base Background: #0B0716 / #140B27
+ * Primary Violet details & containers: #7135F5 / #1F123C
+ * Keywords & Accents: #C6FF00
+ * Main texts: #FFFFFF
+ * Dark icons/details/shadows: #111111
+ * Detail accents: #9B6CFF
+ * Typography: Archivo Black & Poppins
  */
 export async function generateComuniCardPdf(data: ComuniCardData): Promise<void> {
   const width = 800;
@@ -33,20 +39,21 @@ export async function generateComuniCardPdf(data: ComuniCardData): Promise<void>
   const emailText = data.email || 'correo@ucvvirtual.edu.pe';
   const credId = data.credentialId || `UCV-2026-${Math.floor(1000 + Math.random() * 9000)}`;
 
-  // 1. Background Fill: Deep UCV Navy
-  ctx.fillStyle = '#050B18';
+  // 1. Dark Base Background Fill
+  ctx.fillStyle = '#030108';
   ctx.fillRect(0, 0, width, height);
 
-  // 2. Ambient Decorative Glow (Top and Bottom Right)
-  const topGlow = ctx.createRadialGradient(width / 2, 0, 10, width / 2, 0, 450);
-  topGlow.addColorStop(0, 'rgba(217, 27, 36, 0.25)');
-  topGlow.addColorStop(1, 'rgba(5, 11, 24, 0)');
+  // 2. Ambient Decorative Glow (Violet & Neon accents)
+  const topGlow = ctx.createRadialGradient(width / 2, 0, 10, width / 2, 0, 480);
+  topGlow.addColorStop(0, 'rgba(113, 53, 245, 0.45)');
+  topGlow.addColorStop(0.6, 'rgba(155, 108, 255, 0.25)');
+  topGlow.addColorStop(1, 'rgba(3, 1, 8, 0)');
   ctx.fillStyle = topGlow;
   ctx.fillRect(0, 0, width, 500);
 
-  const bottomGlow = ctx.createRadialGradient(width - 50, height - 50, 20, width - 50, height - 50, 400);
-  bottomGlow.addColorStop(0, 'rgba(30, 50, 102, 0.4)');
-  bottomGlow.addColorStop(1, 'rgba(5, 11, 24, 0)');
+  const bottomGlow = ctx.createRadialGradient(width - 50, height - 50, 20, width - 50, height - 50, 450);
+  bottomGlow.addColorStop(0, 'rgba(113, 53, 245, 0.35)');
+  bottomGlow.addColorStop(1, 'rgba(3, 1, 8, 0)');
   ctx.fillStyle = bottomGlow;
   ctx.fillRect(0, height - 500, width, 500);
 
@@ -56,125 +63,130 @@ export async function generateComuniCardPdf(data: ComuniCardData): Promise<void>
   const cardH = height - margin * 2;
   const radius = 28;
 
-  // Outer glow border
-  ctx.strokeStyle = '#1E3266';
+  // Outer violet border
+  ctx.strokeStyle = '#7135F5';
   ctx.lineWidth = 3;
   drawRoundedRect(ctx, margin, margin, cardW, cardH, radius);
   ctx.stroke();
 
-  // Inner card background
-  ctx.fillStyle = '#0A152E';
+  // Inner card background: Deep Dark Violet container #0A0416
+  ctx.fillStyle = '#0A0416';
   drawRoundedRect(ctx, margin + 4, margin + 4, cardW - 8, cardH - 8, radius - 4);
   ctx.fill();
 
   // 4. Lanyard Hole Simulation
-  ctx.fillStyle = '#050B18';
-  ctx.strokeStyle = '#1E3266';
+  ctx.fillStyle = '#030108';
+  ctx.strokeStyle = '#7135F5';
   ctx.lineWidth = 2;
   ctx.beginPath();
   ctx.ellipse(width / 2, margin + 26, 45, 10, 0, 0, Math.PI * 2);
   ctx.fill();
   ctx.stroke();
 
-  // 5. Header Banner Box
+  // 5. Header Banner Box with violet gradient
   const headerY = margin + 54;
   const headerH = 150;
   const headerGrad = ctx.createLinearGradient(margin + 4, headerY, width - margin - 4, headerY + headerH);
-  headerGrad.addColorStop(0, '#111F42');
-  headerGrad.addColorStop(1, '#0A152E');
+  headerGrad.addColorStop(0, '#1F123C');
+  headerGrad.addColorStop(1, '#140B27');
   ctx.fillStyle = headerGrad;
   drawRoundedRect(ctx, margin + 12, headerY, cardW - 24, headerH, 18);
   ctx.fill();
 
-  ctx.strokeStyle = '#D91B24';
+  // Border with #7135F5 and neon accent
+  ctx.strokeStyle = '#7135F5';
   ctx.lineWidth = 2;
   drawRoundedRect(ctx, margin + 12, headerY, cardW - 24, headerH, 18);
   ctx.stroke();
 
-  // UCV Logo Box
+  // UCV Logo Box (#7135F5 with #C6FF00 text)
   const logoX = margin + 30;
   const logoY = headerY + 28;
-  const logoGrad = ctx.createLinearGradient(logoX, logoY, logoX + 85, logoY + 85);
-  logoGrad.addColorStop(0, '#D91B24');
-  logoGrad.addColorStop(1, '#990008');
-  ctx.fillStyle = logoGrad;
+  ctx.fillStyle = '#7135F5';
   drawRoundedRect(ctx, logoX, logoY, 85, 85, 16);
   ctx.fill();
 
-  ctx.fillStyle = '#FFFFFF';
-  ctx.font = 'bold 36px "Outfit", "Inter", sans-serif';
+  ctx.strokeStyle = '#9B6CFF';
+  ctx.lineWidth = 1.5;
+  drawRoundedRect(ctx, logoX, logoY, 85, 85, 16);
+  ctx.stroke();
+
+  ctx.fillStyle = '#C6FF00';
+  ctx.font = '900 36px "Archivo Black", "Poppins", sans-serif';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
   ctx.fillText('UCV', logoX + 42.5, logoY + 44);
 
   // Header Texts
   ctx.textAlign = 'left';
-  ctx.fillStyle = '#94A3B8';
-  ctx.font = 'bold 15px "Inter", sans-serif';
-  ctx.letterSpacing = '3px';
+  ctx.fillStyle = '#9B6CFF';
+  ctx.font = '600 14px "Poppins", sans-serif';
   ctx.fillText('UNIVERSIDAD CÉSAR VALLEJO', logoX + 105, headerY + 44);
 
   ctx.fillStyle = '#FFFFFF';
-  ctx.font = '900 24px "Outfit", "Inter", sans-serif';
-  ctx.letterSpacing = '1px';
+  ctx.font = '900 23px "Archivo Black", "Poppins", sans-serif';
   ctx.fillText('SEMANA DE COMUNICADORES', logoX + 105, headerY + 76);
 
-  ctx.fillStyle = '#D91B24';
-  ctx.font = 'bold 16px "Inter", sans-serif';
-  ctx.fillText('CONGRESO ACADÉMICO 2026', logoX + 105, headerY + 104);
+  ctx.fillStyle = '#C6FF00';
+  ctx.font = '700 15px "Poppins", sans-serif';
+  ctx.fillText('SEMANA DE LA COMUNICACIÓN 2026', logoX + 105, headerY + 104);
 
   // Edition Badge
-  ctx.fillStyle = 'rgba(217, 27, 36, 0.2)';
+  ctx.fillStyle = 'rgba(113, 53, 245, 0.4)';
   drawRoundedRect(ctx, cardW - 55, headerY + 20, 65, 30, 8);
   ctx.fill();
-  ctx.fillStyle = '#D91B24';
-  ctx.font = 'bold 14px "Inter", sans-serif';
+  ctx.strokeStyle = '#C6FF00';
+  ctx.lineWidth = 1;
+  drawRoundedRect(ctx, cardW - 55, headerY + 20, 65, 30, 8);
+  ctx.stroke();
+
+  ctx.fillStyle = '#C6FF00';
+  ctx.font = '900 14px "Archivo Black", "Poppins", sans-serif';
   ctx.textAlign = 'center';
   ctx.fillText('2026', cardW - 22, headerY + 36);
 
   // 6. Sub-header Ribbon "COMUNICARD"
   const ribbonY = headerY + headerH + 24;
-  ctx.fillStyle = '#111F42';
+  ctx.fillStyle = '#1B0F33';
   drawRoundedRect(ctx, margin + 12, ribbonY, cardW - 24, 46, 12);
   ctx.fill();
-  ctx.strokeStyle = '#1E3266';
+  ctx.strokeStyle = '#7135F5';
   ctx.lineWidth = 1.5;
   drawRoundedRect(ctx, margin + 12, ribbonY, cardW - 24, 46, 12);
   ctx.stroke();
 
-  ctx.fillStyle = '#D91B24';
-  ctx.font = '900 16px "Outfit", "Inter", sans-serif';
+  ctx.fillStyle = '#C6FF00';
+  ctx.font = '900 15px "Archivo Black", "Poppins", sans-serif';
   ctx.textAlign = 'center';
-  ctx.letterSpacing = '2px';
   ctx.fillText('✦ COMUNICARD | CREDENCIAL OFICIAL DE ASISTENTE ✦', width / 2, ribbonY + 24);
 
   // 7. Attendee Avatar Graphic
   const avatarCenterY = ribbonY + 140;
   // Glowing outer ring
-  const avatarRing = ctx.createRadialGradient(width / 2, avatarCenterY, 55, width / 2, avatarCenterY, 80);
-  avatarRing.addColorStop(0, 'rgba(217, 27, 36, 0.5)');
-  avatarRing.addColorStop(1, 'rgba(10, 21, 46, 0)');
+  const avatarRing = ctx.createRadialGradient(width / 2, avatarCenterY, 55, width / 2, avatarCenterY, 82);
+  avatarRing.addColorStop(0, 'rgba(113, 53, 245, 0.55)');
+  avatarRing.addColorStop(1, 'rgba(20, 11, 39, 0)');
   ctx.fillStyle = avatarRing;
   ctx.beginPath();
-  ctx.arc(width / 2, avatarCenterY, 80, 0, Math.PI * 2);
+  ctx.arc(width / 2, avatarCenterY, 82, 0, Math.PI * 2);
   ctx.fill();
 
   // Avatar base circle
   const avatarGrad = ctx.createLinearGradient(width / 2 - 60, avatarCenterY - 60, width / 2 + 60, avatarCenterY + 60);
-  avatarGrad.addColorStop(0, '#D91B24');
-  avatarGrad.addColorStop(1, '#1E3266');
+  avatarGrad.addColorStop(0, '#7135F5');
+  avatarGrad.addColorStop(1, '#9B6CFF');
   ctx.fillStyle = avatarGrad;
   ctx.beginPath();
   ctx.arc(width / 2, avatarCenterY, 62, 0, Math.PI * 2);
   ctx.fill();
 
-  ctx.fillStyle = '#050B18';
+  ctx.fillStyle = '#0B0716';
   ctx.beginPath();
   ctx.arc(width / 2, avatarCenterY, 58, 0, Math.PI * 2);
   ctx.fill();
 
   // Stylized silhouette / Icon in avatar
-  ctx.fillStyle = '#D91B24';
+  ctx.fillStyle = '#7135F5';
   ctx.beginPath();
   ctx.arc(width / 2, avatarCenterY - 14, 22, 0, Math.PI * 2);
   ctx.fill();
@@ -186,11 +198,9 @@ export async function generateComuniCardPdf(data: ComuniCardData): Promise<void>
   const nameY = avatarCenterY + 95;
   ctx.textAlign = 'center';
   ctx.fillStyle = '#FFFFFF';
-  ctx.font = '900 32px "Outfit", "Inter", sans-serif';
-  ctx.letterSpacing = '0.5px';
-  // Wrap or fit name if too long
+  ctx.font = '900 30px "Archivo Black", "Poppins", sans-serif';
   if (fullName.length > 26) {
-    ctx.font = '900 26px "Outfit", "Inter", sans-serif';
+    ctx.font = '900 24px "Archivo Black", "Poppins", sans-serif';
   }
   ctx.fillText(fullName, width / 2, nameY);
 
@@ -199,39 +209,39 @@ export async function generateComuniCardPdf(data: ComuniCardData): Promise<void>
   const pillHeight = 36;
 
   // Role Pill
-  ctx.fillStyle = 'rgba(217, 27, 36, 0.18)';
+  ctx.fillStyle = 'rgba(113, 53, 245, 0.25)';
   drawRoundedRect(ctx, width / 2 - 195, pillsY, 190, pillHeight, 18);
   ctx.fill();
-  ctx.strokeStyle = '#D91B24';
+  ctx.strokeStyle = '#7135F5';
   ctx.lineWidth = 1.5;
   drawRoundedRect(ctx, width / 2 - 195, pillsY, 190, pillHeight, 18);
   ctx.stroke();
 
   ctx.fillStyle = '#FFFFFF';
-  ctx.font = 'bold 14px "Inter", sans-serif';
+  ctx.font = '600 13px "Poppins", sans-serif';
   ctx.fillText('Estudiante de Comunicación', width / 2 - 100, pillsY + 19);
 
   // Cycle Pill
-  ctx.fillStyle = '#111F42';
+  ctx.fillStyle = '#1F123C';
   drawRoundedRect(ctx, width / 2 + 10, pillsY, 185, pillHeight, 18);
   ctx.fill();
-  ctx.strokeStyle = '#1E3266';
+  ctx.strokeStyle = '#C6FF00';
   ctx.lineWidth = 1.5;
   drawRoundedRect(ctx, width / 2 + 10, pillsY, 185, pillHeight, 18);
   ctx.stroke();
 
-  ctx.fillStyle = '#D91B24';
-  ctx.font = '900 15px "Outfit", "Inter", sans-serif';
+  ctx.fillStyle = '#C6FF00';
+  ctx.font = '900 14px "Archivo Black", "Poppins", sans-serif';
   ctx.fillText(`✦ ${cycleText.toUpperCase()} ✦`, width / 2 + 102, pillsY + 19);
 
   // 10. Information Grid Container
   const infoBoxY = pillsY + 60;
   const infoBoxH = 175;
-  ctx.fillStyle = '#050B18';
+  ctx.fillStyle = '#0B0716';
   drawRoundedRect(ctx, margin + 18, infoBoxY, cardW - 36, infoBoxH, 18);
   ctx.fill();
-  ctx.strokeStyle = '#1E3266';
-  ctx.lineWidth = 2;
+  ctx.strokeStyle = '#7135F5';
+  ctx.lineWidth = 1.5;
   drawRoundedRect(ctx, margin + 18, infoBoxY, cardW - 36, infoBoxH, 18);
   ctx.stroke();
 
@@ -242,18 +252,18 @@ export async function generateComuniCardPdf(data: ComuniCardData): Promise<void>
   // Row 1: DNI / Código & Modalidad
   const row1Y = infoBoxY + 36;
   ctx.textAlign = 'left';
-  ctx.fillStyle = '#94A3B8';
-  ctx.font = 'bold 12px "Inter", sans-serif';
+  ctx.fillStyle = '#9B6CFF';
+  ctx.font = '600 12px "Poppins", sans-serif';
   ctx.fillText('CÓDIGO UCV / DNI', col1X, row1Y);
   ctx.fillText('FECHAS DEL CONGRESO', col2X, row1Y);
 
   ctx.fillStyle = '#FFFFFF';
-  ctx.font = 'bold 18px "Outfit", "Inter", sans-serif';
+  ctx.font = '900 18px "Archivo Black", "Poppins", sans-serif';
   ctx.fillText(dniText, col1X, row1Y + 24);
-  ctx.fillText('19 - 23 de Octubre, 2026', col2X, row1Y + 24);
+  ctx.fillText('30 de Nov al 5 de Dic 2026', col2X, row1Y + 24);
 
   // Divider inside info box
-  ctx.strokeStyle = 'rgba(30, 50, 102, 0.6)';
+  ctx.strokeStyle = 'rgba(113, 53, 245, 0.4)';
   ctx.lineWidth = 1;
   ctx.beginPath();
   ctx.moveTo(col1X, row1Y + 45);
@@ -262,16 +272,16 @@ export async function generateComuniCardPdf(data: ComuniCardData): Promise<void>
 
   // Row 2: Correo & Sede
   const row2Y = row1Y + 68;
-  ctx.fillStyle = '#94A3B8';
-  ctx.font = 'bold 12px "Inter", sans-serif';
+  ctx.fillStyle = '#9B6CFF';
+  ctx.font = '600 12px "Poppins", sans-serif';
   ctx.fillText('CORREO ELECTRÓNICO REGISTRADO', col1X, row2Y);
-  ctx.fillText('SEDE & MODALIDAD', col2X, row2Y);
+  ctx.fillText('SEDE', col2X, row2Y);
 
   ctx.fillStyle = '#E2E8F0';
-  ctx.font = '15px "Inter", sans-serif';
+  ctx.font = '500 14px "Poppins", sans-serif';
   const displayEmail = emailText.length > 28 ? emailText.substring(0, 25) + '...' : emailText;
   ctx.fillText(displayEmail, col1X, row2Y + 24);
-  ctx.fillText('Campus UCV & Streaming Live HD', col2X, row2Y + 24);
+  ctx.fillText('Campus UCV - Los Olivos', col2X, row2Y + 24);
 
   // 11. Security & QR Code Section
   const qrSectionY = infoBoxY + infoBoxH + 24;
@@ -285,43 +295,43 @@ export async function generateComuniCardPdf(data: ComuniCardData): Promise<void>
   drawRoundedRect(ctx, qrX, qrY, qrBoxW, qrBoxH, 14);
   ctx.fill();
 
-  // Draw Procedural Stylized QR Code Matrix inside
+  // Draw Procedural Stylized QR Code Matrix inside with #111111 and #7135F5
   drawStylizedQRCode(ctx, qrX + 12, qrY + 12, qrBoxW - 24, qrBoxH - 24, credId);
 
   // Left side of QR: Credential ID, Barcode, & Security Guarantee
   const securityX = margin + 24;
   ctx.textAlign = 'left';
-  ctx.fillStyle = '#94A3B8';
-  ctx.font = 'bold 12px "Inter", sans-serif';
+  ctx.fillStyle = '#9B6CFF';
+  ctx.font = '600 12px "Poppins", sans-serif';
   ctx.fillText('CÓDIGO ÚNICO DE ACREDITACIÓN', securityX, qrY + 22);
 
-  ctx.fillStyle = '#D91B24';
-  ctx.font = '900 24px "Outfit", monospace';
+  ctx.fillStyle = '#C6FF00';
+  ctx.font = '900 24px "Archivo Black", monospace';
   ctx.fillText(credId, securityX, qrY + 54);
 
-  // Barcode visualization simulation
+  // Barcode visualization simulation with #9B6CFF details
   drawBarcode(ctx, securityX, qrY + 70, 360, 32);
 
-  ctx.fillStyle = '#64748B';
-  ctx.font = '11px "Inter", sans-serif';
+  ctx.fillStyle = '#94A3B8';
+  ctx.font = '500 11px "Poppins", sans-serif';
   ctx.fillText('AUTENTICACIÓN DIGITAL VALLEJIANA · ESCUELA DE COMUNICACIONES', securityX, qrY + 124);
 
   // 12. Bottom Security Hologram Ribbon
   const bottomBarY = height - margin - 60;
-  ctx.fillStyle = '#111F42';
+  ctx.fillStyle = '#1B0F33';
   drawRoundedRect(ctx, margin + 12, bottomBarY, cardW - 24, 46, 12);
   ctx.fill();
 
-  ctx.strokeStyle = '#1E3266';
+  ctx.strokeStyle = '#7135F5';
   ctx.lineWidth = 1;
   drawRoundedRect(ctx, margin + 12, bottomBarY, cardW - 24, 46, 12);
   ctx.stroke();
 
   ctx.textAlign = 'center';
-  ctx.fillStyle = '#94A3B8';
-  ctx.font = 'bold 11px "Inter", sans-serif';
+  ctx.fillStyle = '#E2E8F0';
+  ctx.font = '600 11px "Poppins", sans-serif';
   ctx.fillText(
-    'VÁLIDO PARA INGRESO AL CAMPUS, AULAS MAGNAS, PANELES Y TALLERES PRÁCTICOS · UCV 2026',
+    'VÁLIDO PARA INGRESO AL CAMPUS, AULAS MAGNAS, PANELES Y SESIONES PLENARIAS · UCV 2026',
     width / 2,
     bottomBarY + 26
   );
@@ -381,7 +391,7 @@ function drawStylizedQRCode(
   ctx.fillStyle = '#FFFFFF';
   ctx.fillRect(x, y, w, h);
 
-  ctx.fillStyle = '#050B18';
+  ctx.fillStyle = '#111111';
 
   // Corner Position Markers (Finder Patterns)
   drawFinderPattern(ctx, x, y, cellSize);
@@ -421,20 +431,20 @@ function drawStylizedQRCode(
     }
   }
 
-  // Center accent dot
-  ctx.fillStyle = '#D91B24';
+  // Center accent dot: Brand Primary #7135F5
+  ctx.fillStyle = '#7135F5';
   ctx.fillRect(x + 9 * cellSize, y + 9 * cellSize, cellSize * 3, cellSize * 3);
 }
 
 function drawFinderPattern(ctx: CanvasRenderingContext2D, x: number, y: number, cell: number) {
-  // Outer 7x7 box
-  ctx.fillStyle = '#050B18';
+  // Outer 7x7 box (#111111)
+  ctx.fillStyle = '#111111';
   ctx.fillRect(x, y, cell * 7, cell * 7);
   // Inner 5x5 white
   ctx.fillStyle = '#FFFFFF';
   ctx.fillRect(x + cell, y + cell, cell * 5, cell * 5);
-  // Center 3x3 black
-  ctx.fillStyle = '#D91B24';
+  // Center 3x3 accent (#7135F5)
+  ctx.fillStyle = '#7135F5';
   ctx.fillRect(x + cell * 2, y + cell * 2, cell * 3, cell * 3);
 }
 
@@ -442,7 +452,7 @@ function drawFinderPattern(ctx: CanvasRenderingContext2D, x: number, y: number, 
  * Barcode drawing helper
  */
 function drawBarcode(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number) {
-  ctx.fillStyle = '#E2E8F0';
+  ctx.fillStyle = '#CBD5E1';
   let curX = x;
   let toggle = true;
   while (curX < x + w) {

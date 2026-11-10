@@ -17,7 +17,7 @@ export interface AgendaItem {
   title: string;
   speaker: string;
   location: string;
-  type?: 'conferencia' | 'taller' | 'panel' | 'ceremonia';
+  type?: string;
 }
 
 export interface Workshop {

@@ -51,30 +51,8 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Campuses */}
-          <div>
-            <h4 className="font-heading font-black text-white mb-4 tracking-wide text-sm">
-              Sedes Participantes
-            </h4>
-            <ul className="space-y-2.5 text-xs text-slate-400">
-              <li className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#C6FF00]" />
-                Campus Lima Norte
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#C6FF00]" />
-                Campus Trujillo
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#C6FF00]" />
-                Campus Piura
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#C6FF00]" />
-                Campus Chiclayo & Chimbote
-              </li>
-            </ul>
-          </div>
+          {/* Empty spacer column to preserve grid positioning for surrounding elements */}
+          <div aria-hidden="true" className="hidden md:block" />
 
           {/* Connect & Social Icons */}
           <div>

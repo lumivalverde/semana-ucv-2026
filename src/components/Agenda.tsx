@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Clock, MapPin } from 'lucide-react';
 import { AGENDA_DATA } from '../data';
+import flyerSabado from '../assets/images/flyer_sabado.jpg';
 
 export const Agenda: React.FC = () => {
   const [activeDay, setActiveDay] = useState<number>(1);
@@ -10,7 +11,8 @@ export const Agenda: React.FC = () => {
     { num: 2, label: 'Día 2: Mar 01 Dic' },
     { num: 3, label: 'Día 3: Mié 02 Dic' },
     { num: 4, label: 'Día 4: Jue 03 Dic' },
-    { num: 5, label: 'Día 5: Vie 04 - Sáb 05 Dic' },
+    { num: 5, label: 'Día 5: Vie 04 Dic' },
+    { num: 6, label: 'Día 6: Sáb 05 Dic' },
   ];
 
   const currentItems = AGENDA_DATA[activeDay] || [];
@@ -90,6 +92,20 @@ export const Agenda: React.FC = () => {
               </div>
             </div>
           ))}
+
+          {/* Flyer oficial del Campeonato Deportivo para el Día 6 */}
+          {activeDay === 6 && (
+            <div className="mt-8 pt-4 flex flex-col items-center">
+              <div className="max-w-xl w-full rounded-3xl overflow-hidden border-2 border-[#7135F5]/50 shadow-[0_20px_50px_rgba(0,0,0,0.9)] hover:border-[#C6FF00] transition-all duration-300 bg-[#080312]">
+                <img
+                  src={flyerSabado}
+                  alt="Flyer Oficial Campeonato Deportivo Fútbol y Vóley - Sábado 5 de Diciembre"
+                  className="w-full h-auto object-contain select-none"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>

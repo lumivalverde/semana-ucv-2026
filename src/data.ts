@@ -67,115 +67,253 @@ export const AGENDA_DATA: Record<number, AgendaItem[]> = {
   1: [
     {
       id: 'd1-1',
-      time: '09:00 AM',
-      title: 'Ceremonia Inaugural de la Semana de Comunicadores 2026',
-      speaker: 'Autoridades UCV y Decanato de Humanidades',
-      location: 'Auditorio Magna UCV',
-      type: 'ceremonia'
+      time: '10:00 a.m.',
+      title: 'El mundo profesional actual: retos, oportunidades y aprendizajes',
+      speaker: 'Sergio Mejía',
+      location: 'Auditorio Los Caynas',
+      type: 'Conferencia'
     },
     {
       id: 'd1-2',
-      time: '10:00 AM',
-      title: 'Conferencia Magistral: Inteligencia Artificial Generativa en Salas de Redacción',
-      speaker: 'Dra. Sofía Alarcón (España)',
-      location: 'Auditorio Magna / Streaming Live HD',
-      type: 'conferencia'
+      time: '10:30 a.m.',
+      title: 'Periodismo político y actualidad: retos y desafíos de la información en el Perú',
+      speaker: 'Jorge Calmet',
+      location: 'Aula 205 Pabellón A',
+      type: 'Conferencia'
     },
     {
       id: 'd1-3',
-      time: '03:00 PM',
-      title: 'Panel Académico: Ética Periodística en Tiempos de Algoritmos',
-      speaker: 'Mesa de Investigadores UCV & Medios Invitados',
-      location: 'Sala de Usos Múltiples 1',
-      type: 'panel'
+      time: '02:00 p.m.',
+      title: 'Marketing y gestión de proyectos: estrategias e innovación',
+      speaker: 'David Gallardo',
+      location: 'Aula 205 Pabellón A',
+      type: 'Conferencia'
+    },
+    {
+      id: 'd1-4',
+      time: '03:00 p.m.',
+      title: 'Periodismo contemporáneo: tendencias, desafíos y nuevas narrativas',
+      speaker: 'Jorge Ballón',
+      location: 'Google Lab',
+      type: 'Conferencia'
+    },
+    {
+      id: 'd1-5',
+      time: '06:30 p.m.',
+      title: 'Periodismo digital: narrativas, innovación y transformación de la comunicación',
+      speaker: 'Leah Sacín',
+      location: 'Aula 205 Pabellón A',
+      type: 'Conferencia'
+    },
+    {
+      id: 'd1-6',
+      time: '07:00 p.m.',
+      title: 'Postproducción creativa: del montaje a la magia audiovisual',
+      speaker: 'Juanchi XD',
+      location: 'Lab MACS - Pabellón B',
+      type: 'Conferencia'
     }
   ],
   2: [
     {
       id: 'd2-1',
-      time: '09:30 AM',
-      title: 'Workshop: Creación y Viralización de Contenido Audiovisual',
-      speaker: 'Equipo Creativo Media Lab UCV',
-      location: 'Laboratorio Audiovisual A',
-      type: 'taller'
-    },
-    {
-      id: 'd2-2',
-      time: '11:30 AM',
-      title: 'Conferencia: Storytelling Transmedia e Hiper-Segmentación',
-      speaker: 'Mg. Mateo Benítez (México)',
-      location: 'Auditorio Magna',
-      type: 'conferencia'
-    },
-    {
-      id: 'd2-3',
-      time: '04:00 PM',
-      title: 'Networking & Muestra Audiovisual Estudiantil',
-      speaker: 'Estudiantes UCV y Jurado Evaluador',
-      location: 'Plaza Central de Integración',
-      type: 'panel'
+      time: 'Por confirmar',
+      title: 'Actividades y Ponencias de la jornada',
+      speaker: 'Por confirmar',
+      location: 'Por confirmar',
+      type: 'Por confirmar'
     }
   ],
   3: [
     {
       id: 'd3-1',
-      time: '10:00 AM',
-      title: 'Mesa Redonda: El Futuro de la Radio y el Audio Digital en Streaming',
-      speaker: 'Especialistas y Directores de Radio Nacional',
-      location: 'Auditorio de Comunicaciones B',
-      type: 'panel'
+      time: '08:00 a.m.',
+      title: 'Detrás de cámaras: el fascinante mundo de la producción televisiva',
+      speaker: 'Anibal Narro',
+      location: 'CPA Centro de Producción Audiovisual',
+      type: 'Taller'
     },
     {
       id: 'd3-2',
-      time: '04:00 PM',
-      title: 'Conferencia: Producción Cinematográfica Independiente y Distribución Digital',
-      speaker: 'Lic. Camila Ríos (Perú)',
-      location: 'Auditorio Magna',
-      type: 'conferencia'
+      time: '10:00 a.m.',
+      title: 'Creadores digitales: secretos, estrategias y el poder de los algoritmos',
+      speaker: 'Joseph Ovalle',
+      location: 'Aula 205 Pabellón A',
+      type: 'Charla'
+    },
+    {
+      id: 'd3-3',
+      time: '03:00 p.m.',
+      title: 'De la idea a la pantalla: vive la experiencia de la producción audiovisual',
+      speaker: 'Andrés Manco',
+      location: 'CPA Centro de Producción Audiovisual',
+      type: 'Taller'
+    },
+    {
+      id: 'd3-4',
+      time: '05:00 p.m.',
+      title: 'Marcas que impactan: el arte de crear spots publicitarios',
+      speaker: 'Kevin Rodriguez',
+      location: 'Explanada UCV',
+      type: 'Ponencia'
+    },
+    {
+      id: 'd3-5',
+      time: '07:00 p.m.',
+      title: 'Periodismo en las calles: historias, desafíos y realidades',
+      speaker: 'Samuel Cortéz',
+      location: 'Salón - Pabellón E',
+      type: 'Ponencia'
+    },
+    {
+      id: 'd3-6',
+      time: '08:00 p.m.',
+      title: 'Conquista el mundo digital: tendencias y oportunidades del marketing en redes sociales',
+      speaker: 'Milagros Maclla',
+      location: 'Salón - Pabellón E',
+      type: 'Ponencia'
+    },
+    {
+      id: 'd3-7',
+      time: '08:00 p.m.',
+      title: 'De emprendedor a empresario: claves para convertir una idea en negocio',
+      speaker: 'Pedro Jacinto & Juan Carlos Cam',
+      location: 'Aula 205 Pabellón A',
+      type: 'Charla'
+    },
+    {
+      id: 'd3-8',
+      time: '09:00 p.m.',
+      title: 'Contenido que conecta: estrategias para conquistar las audiencias digitales',
+      speaker: 'Yesael Vargas & Jesús León',
+      location: 'Salón - Pabellón E',
+      type: 'Charla'
     }
   ],
   4: [
     {
       id: 'd4-1',
-      time: '09:00 AM',
-      title: 'Conferencia: Gestión de Reputación Corporativa en la era de los Deepfakes',
-      speaker: 'Dr. Carlos Eduardo Paiva (Brasil)',
-      location: 'Auditorio Magna',
-      type: 'conferencia'
+      time: '09:00 a.m.',
+      title: 'De la radio al podcast: evolución, historia y nuevas formas de conectar con las audiencias',
+      speaker: 'Jorge Mario Pérez',
+      location: 'Salón 205 - Pabellón A',
+      type: 'Ponencia'
     },
     {
       id: 'd4-2',
-      time: '02:30 PM',
-      title: 'Taller Práctico: Fact-Checking y Herramientas OSINT contra la Desinformación',
-      speaker: 'Docentes Investigadores UCV',
-      location: 'Laboratorio de Cómputo Digital 3',
-      type: 'taller'
+      time: '10:30 a.m.',
+      title: 'Periodismo en las calles: historias, desafíos y realidades detrás de cada noticia',
+      speaker: 'Miriam Cahuana',
+      location: 'Google Lab',
+      type: 'Ponencia'
+    },
+    {
+      id: 'd4-3',
+      time: '12:00 p.m.',
+      title: 'En primera línea: el desafío de cubrir grandes acontecimientos y eventos de interés público',
+      speaker: 'César Santillan',
+      location: 'Google Lab',
+      type: 'Ponencia'
+    },
+    {
+      id: 'd4-4',
+      time: '02:00 p.m.',
+      title: 'Más allá de las pantallas: narrativas transmedia y el futuro de los medios públicos',
+      speaker: 'Sergio Alvarado',
+      location: 'Salón 205 - Pabellón A',
+      type: 'Ponencia'
+    },
+    {
+      id: 'd4-5',
+      time: '03:00 p.m.',
+      title: 'La locución y el poder de tu voz',
+      speaker: 'Jesús Portuguez',
+      location: 'CPA Centro de Producción Audiovisual',
+      type: 'Ponencia'
+    },
+    {
+      id: 'd4-6',
+      time: '04:00 p.m.',
+      title: 'Ficción a fondo: el arte de construir historias que conectan e impactan',
+      speaker: 'Pablo Vásquez',
+      location: 'Laboratorio Mac\'s',
+      type: 'Taller'
+    },
+    {
+      id: 'd4-7',
+      time: '06:00 p.m.',
+      title: 'Periodismo en la era de la inteligencia artificial: nuevos desafíos y oportunidades para informar',
+      speaker: 'Armando Ávalos',
+      location: 'Salón 205 - Pabellón A',
+      type: 'Ponencia'
+    },
+    {
+      id: 'd4-8',
+      time: '07:00 p.m.',
+      title: 'El Arte de Comunicar y Representar: Relaciones Públicas y Protocolo en la Universidad Pública',
+      speaker: 'Ever Montero',
+      location: 'Google Lab',
+      type: 'Master class'
+    },
+    {
+      id: 'd4-9',
+      time: '08:00 p.m.',
+      title: 'Producción audiovisual en acción: estrategias y experiencias en la industria musical',
+      speaker: 'José Guerrero',
+      location: 'Auditorio Los Caynas',
+      type: 'Ponencia'
     }
   ],
   5: [
     {
       id: 'd5-1',
-      time: '10:00 AM',
-      title: 'Panel Internacional: Tendencias en Comunicación y Tecnologías 2027-2030',
-      speaker: 'Panelistas Internacionales Invitados',
-      location: 'Auditorio Magna',
-      type: 'panel'
+      time: '09:00 a.m.',
+      title: 'Periodismo en la Era Digital',
+      speaker: 'Raquel Arrunátegui',
+      location: 'Salón 205 - Pabellón A',
+      type: 'Ponencia'
     },
     {
       id: 'd5-2',
-      time: '03:00 PM',
-      title: 'Conferencia Magistral: Estrategias de Podcast y Periodismo Sonoro 360°',
-      speaker: 'Mg. Lucía Thorne (Perú)',
-      location: 'Auditorio Magna',
-      type: 'conferencia'
+      time: '09:30 a.m.',
+      title: 'La comunicación y multimedia: del periodismo tradicional a las plataformas digitales',
+      speaker: 'Giaan Simón Laveriano',
+      location: 'Por confirmar',
+      type: 'Ponencia'
     },
     {
       id: 'd5-3',
-      time: '06:00 PM',
-      title: 'Ceremonia de Clausura, Premiación y Noche de Gala Vallejiana',
-      speaker: 'Comité Organizador & Elenco Cultural UCV',
-      location: 'Plaza Principal Campus UCV - Los Olivos',
-      type: 'ceremonia'
+      time: 'Por confirmar',
+      title: 'Growth Marketing y estrategias digitales para el posicionamiento de marcas en la era digital',
+      speaker: 'Pedro Salazar',
+      location: 'Laboratorio Mac\'s',
+      type: 'Ponencia'
+    },
+    {
+      id: 'd5-4',
+      time: 'Por confirmar',
+      title: 'Detrás del Filtro: Descubre tu perfil de comunicación y estrategias de una reclutadora para comunicadores del futuro',
+      speaker: 'Nicole Carrizales',
+      location: 'Laboratorio Mac\'s',
+      type: 'Taller'
+    },
+    {
+      id: 'd5-5',
+      time: 'Por confirmar',
+      title: 'El poder de la voz en los medios de comunicación',
+      speaker: 'Angelo Talavera',
+      location: 'Por confirmar',
+      type: 'Master class'
+    }
+  ],
+  6: [
+    {
+      id: 'd6-1',
+      time: 'Por confirmar',
+      title: 'Campeonato deportivo de fútbol y vóley',
+      speaker: 'COM360',
+      location: 'UCV (Campo San Andrés)',
+      type: 'Actividad'
     }
   ]
 };

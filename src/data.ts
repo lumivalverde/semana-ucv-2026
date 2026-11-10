@@ -309,7 +309,7 @@ export const AGENDA_DATA: Record<number, AgendaItem[]> = {
   6: [
     {
       id: 'd6-1',
-      time: 'Por confirmar',
+      time: '08:00 a.m.',
       title: 'Campeonato deportivo de fútbol y vóley',
       speaker: 'COM360',
       location: 'UCV (Campo San Andrés)',

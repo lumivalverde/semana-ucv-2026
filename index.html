@@ -17,5 +17,29 @@
   <body class="bg-[#030108] text-white antialiased selection:bg-[#C6FF00] selection:text-[#111111]">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      (function() {
+        const originalTitle = 'COM360 | UCV 2026';
+        const attentionTitle = '¡Regresa! 👀';
+        let blinkInterval = null;
+
+        document.addEventListener('visibilitychange', function() {
+          if (document.hidden) {
+            let isOriginal = false;
+            document.title = attentionTitle;
+            blinkInterval = setInterval(function() {
+              document.title = isOriginal ? attentionTitle : originalTitle;
+              isOriginal = !isOriginal;
+            }, 1000);
+          } else {
+            if (blinkInterval) {
+              clearInterval(blinkInterval);
+              blinkInterval = null;
+            }
+            document.title = originalTitle;
+          }
+        });
+      })();
+    </script>
   </body>
 </html>

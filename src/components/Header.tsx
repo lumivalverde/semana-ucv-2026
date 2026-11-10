@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import logoHeader from '../assets/images/logo_header.png';
 
 interface HeaderProps {
   onOpenRegister: () => void;
@@ -44,6 +45,22 @@ export const Header: React.FC<HeaderProps> = ({ onOpenRegister }) => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
+          {/* Left Brand Logo */}
+          <a
+            href="#inicio"
+            onClick={(e) => handleNavClick(e, '#inicio')}
+            className="flex items-center gap-3 py-1 cursor-pointer group select-none shrink-0"
+            aria-label="COM360 Inicio"
+          >
+            <img
+              src={logoHeader}
+              alt="COM360 Logo"
+              style={{ height: '72px' }}
+              className="h-[72px] w-auto max-w-[260px] object-contain drop-shadow-[0_4px_16px_rgba(113,53,245,0.4)] transition-transform duration-300 group-hover:scale-105"
+              loading="eager"
+            />
+          </a>
+
           {/* Desktop Navigation Links (aligned to the right) */}
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium ml-auto" id="desktop-nav">
             {navLinks.map((link) => (

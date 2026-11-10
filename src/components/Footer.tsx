@@ -1,5 +1,5 @@
 import React from 'react';
-import { Facebook, Instagram, Youtube } from 'lucide-react';
+import { Instagram } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -65,31 +65,28 @@ export const Footer: React.FC = () => {
             </p>
             <div className="flex items-center gap-3">
               <a
-                href="https://facebook.com"
+                href="https://www.instagram.com/c0m_360?srtk=YXlkcHJ1ZnppNzRu"
                 target="_blank"
                 rel="noreferrer"
-                className="w-10 h-10 rounded-xl bg-[#090414] border border-[#7135F5]/50 text-white hover:text-[#111111] hover:bg-[#C6FF00] hover:border-[#C6FF00] transition-all flex items-center justify-center shadow-lg shadow-black cursor-pointer"
-                aria-label="Facebook"
-              >
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noreferrer"
-                className="w-10 h-10 rounded-xl bg-[#090414] border border-[#7135F5]/50 text-white hover:text-[#111111] hover:bg-[#C6FF00] hover:border-[#C6FF00] transition-all flex items-center justify-center shadow-lg shadow-black cursor-pointer"
+                className="w-10 h-10 rounded-xl bg-[#090414] border border-[#7135F5]/50 text-white hover:text-[#111111] hover:bg-[#C6FF00] hover:border-[#C6FF00] transition-all flex items-center justify-center shadow-lg shadow-black cursor-pointer group"
                 aria-label="Instagram"
               >
-                <Instagram className="w-5 h-5" />
+                <Instagram className="w-5 h-5 transition-transform group-hover:scale-110" />
               </a>
               <a
-                href="https://youtube.com"
+                href="https://www.tiktok.com/@comm3600?_r=1&_t=ZS-9BHHSwmHvIy"
                 target="_blank"
                 rel="noreferrer"
-                className="w-10 h-10 rounded-xl bg-[#090414] border border-[#7135F5]/50 text-white hover:text-[#111111] hover:bg-[#C6FF00] hover:border-[#C6FF00] transition-all flex items-center justify-center shadow-lg shadow-black cursor-pointer"
-                aria-label="YouTube"
+                className="w-10 h-10 rounded-xl bg-[#090414] border border-[#7135F5]/50 text-white hover:text-[#111111] hover:bg-[#C6FF00] hover:border-[#C6FF00] transition-all flex items-center justify-center shadow-lg shadow-black cursor-pointer group"
+                aria-label="TikTok"
               >
-                <Youtube className="w-5 h-5" />
+                <svg
+                  className="w-5 h-5 fill-current transition-transform group-hover:scale-110"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.11V9.4a6.33 6.33 0 0 0-.86-.06A6.34 6.34 0 0 0 3 15.68a6.34 6.34 0 0 0 10.82 4.47 6.27 6.27 0 0 0 1.93-4.48V8.78a8.19 8.19 0 0 0 4.84 1.57v-3.5a4.83 4.83 0 0 1-1-.16z" />
+                </svg>
               </a>
             </div>
           </div>

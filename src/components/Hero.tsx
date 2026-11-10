@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar, MapPin, ArrowRight, Play, Hourglass, Users } from 'lucide-react';
-import isotipoImg from '../assets/images/ISOTIPO.png';
+import heroBgImg from '../assets/images/hero_bg.jpg';
 
 interface HeroProps {
   onOpenRegister: () => void;
@@ -53,12 +53,24 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRegister }) => {
   return (
     <section
       id="inicio"
-      className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-gradient-to-b from-[#030108] via-[#090414] to-[#030108]"
+      className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-[#030108]"
     >
+      {/* Background Image with 60% opacity */}
+      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
+        <img
+          src={heroBgImg}
+          alt="Producción Audiovisual y Comunicación"
+          className="w-full h-full object-cover object-center opacity-60 mix-blend-screen filter brightness-95 contrast-110"
+        />
+        {/* Gradients to blend smoothly with top and bottom borders and guarantee high contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#030108]/90 via-[#030108]/45 to-[#030108]" />
+        <div className="absolute inset-0 bg-radial from-transparent via-[#030108]/30 to-[#030108]/85" />
+      </div>
+
       {/* Ambient decorative glow orbs in deep violet */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-[#7135F5]/12 rounded-full blur-[160px] pointer-events-none" />
-      <div className="absolute top-1/3 left-10 w-72 h-72 bg-[#9B6CFF]/8 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-80 h-80 bg-[#7135F5]/10 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-[#7135F5]/15 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/3 left-10 w-72 h-72 bg-[#9B6CFF]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-80 h-80 bg-[#7135F5]/15 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -67,20 +79,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRegister }) => {
             {/* Event status badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0C061A] border border-[#7135F5]/60 text-[#C6FF00] text-xs sm:text-sm font-semibold uppercase tracking-wider shadow-md shadow-black">
               <span className="w-2.5 h-2.5 rounded-full bg-[#C6FF00] animate-ping" />
-              COMWEEK 2026
+              Semana comunicadora 2026
             </div>
 
-            {/* Isotipo original tal cual fue subido por el usuario */}
-            <div className="flex flex-col items-center lg:items-start pt-1 pb-1">
-              <div className="relative group inline-block max-w-full">
-                <img
-                  src={isotipoImg}
-                  alt="Isotipo Semana de Comunicadores UCV 2026"
-                  className="w-72 sm:w-96 md:w-[460px] max-w-full h-auto object-contain drop-shadow-[0_15px_35px_rgba(113,53,245,0.4)] transition-transform duration-500 group-hover:scale-105 select-none px-0 mx-0"
-                  loading="eager"
-                />
-              </div>
-            </div>
 
             <p className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
               ¡Se viene la primera edición del gran encuentro de la comunicación! Cinco días, grandes referentes y experiencias que conectarán el periodismo, el marketing, la producción audiovisual y las nuevas tecnologías. ¡No te lo puedes perder!
@@ -123,12 +124,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRegister }) => {
           <div className="lg:col-span-5">
             <div className="relative glass-panel rounded-3xl p-6 sm:p-8 border border-[#7135F5]/50 shadow-2xl shadow-black bg-[#080312]/90">
               <div className="absolute -top-3 -right-3 px-3.5 py-1.5 bg-[#C6FF00] text-[#111111] font-heading font-black text-xs rounded-full uppercase tracking-wider shadow-lg shadow-black">
-                Faltan Pocos Días
+                COMING SOON
               </div>
 
               <h3 className="font-heading font-black text-xl text-center text-white mb-6 flex items-center justify-center gap-2">
                 <Hourglass className="w-5 h-5 text-[#C6FF00]" />
-                <span>Cuenta Regresiva al Evento</span>
+                <span>¡FALTAN!</span>
               </h3>
 
               {/* Timer 4-columns */}

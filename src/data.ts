@@ -1,65 +1,70 @@
 import { Speaker, AgendaItem, Workshop } from './types';
+import jorgeMarioPerezImg from './assets/images/speakers/jorge_mario_perez.png';
+import miriamCahuanaImg from './assets/images/speakers/miriam_cahuana.png';
+import cesarSantillanImg from './assets/images/speakers/cesar_santillan.png';
+import sergioAlvaradoImg from './assets/images/speakers/sergio_alvarado.png';
+import jesusPortuguezImg from './assets/images/speakers/jesus_portuguez.jpg';
 
 export const SPEAKERS: Speaker[] = [
   {
     id: 1,
-    name: 'Dra. Sofía Alarcón',
-    role: 'Directora de Innovación Digital',
-    company: 'MediaTech Global',
-    country: 'España',
-    flagEmoji: '🇪🇸',
-    photo: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600',
-    topic: 'Inteligencia Artificial Generativa en salas de redacción',
-    time: 'Lunes 19 Oct | 10:00 AM',
-    bio: 'Especialista en transformación digital periodística con más de 15 años liderando proyectos de innovación en medios europeos e hispanoamericanos. Doctora en Periodismo por la Universidad Complutense de Madrid.'
+    name: 'Jorge Mario Pérez',
+    role: 'Productor de UNIMINUTO',
+    company: 'Radio Colombia',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: jorgeMarioPerezImg,
+    topic: 'De la radio al podcast: evolución, historia y nuevas formas de conectar con las audiencias',
+    time: 'Jueves 03 Dic - 09:00 a.m.',
+    bio: 'Productor de UNIMINUTO Radio Colombia, comunicador social y periodista con 15 años de experiencia en medios comunitarios, comerciales y universitarios; especializado en producción audiovisual, marketing digital y estrategia de contenidos.'
   },
   {
     id: 2,
-    name: 'Mg. Mateo Benítez',
-    role: 'VP de Estrategia de Marca',
-    company: 'Publicis Latam',
-    country: 'México',
-    flagEmoji: '🇲🇽',
-    photo: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600',
-    topic: 'Storytelling Transmedia e Hiper-Segmentación Audiovisual',
-    time: 'Martes 20 Oct | 11:30 AM',
-    bio: 'Asesor de branding de grandes marcas internacionales. Experto en narrativas multiplataforma y captación de audiencias Gen Z con proyectos premiados en Cannes Lions y El Ojo de Iberoamérica.'
+    name: 'Miriam Cahuana',
+    role: 'Periodista',
+    company: 'RPP Noticias',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: miriamCahuanaImg,
+    topic: 'Periodismo en las calles: historias, desafíos y realidades detrás de cada noticia',
+    time: 'Jueves 03 Dic - 10:30 a.m.',
+    bio: 'Periodista de campo y reportera de noticias especializada en coberturas en directo para la multiplataforma de RPP Noticias. Experiencia en periodismo judicial y político, en medios institucionales como Justicia TV.'
   },
   {
     id: 3,
-    name: 'Lic. Camila Ríos',
-    role: 'Documentalista & Productora Cine',
-    company: 'Streaming Original Series',
+    name: 'César Santillan',
+    role: 'Periodista',
+    company: 'TV Perú / IRTP',
     country: 'Perú',
     flagEmoji: '🇵🇪',
-    photo: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=600',
-    topic: 'Producción Cinematográfica Independiente y Distribución Digital',
-    time: 'Miércoles 21 Oct | 04:00 PM',
-    bio: 'Galardonada realizadora audiovisual peruana reconocida en festivales internacionales de cine por sus documentales de impacto social y preservación de patrimonio cultural andino.'
+    photo: cesarSantillanImg,
+    topic: 'En primera línea: el desafío de cubrir grandes acontecimientos y eventos de interés público',
+    time: 'Jueves 03 Dic - 12:00 p.m.',
+    bio: 'Periodista de TV Perú e IRTP, con 11 años de experiencia en cobertura periodística política y policial, producción de programas informativos y comunicación social. Bachiller en Periodismo y egresado de la maestría en Comunicación y Marketing.'
   },
   {
     id: 4,
-    name: 'Dr. Carlos Eduardo Paiva',
-    role: 'Investigador en Comunicación Crisis',
-    company: 'Universidad de São Paulo',
-    country: 'Brasil',
-    flagEmoji: '🇧🇷',
-    photo: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600',
-    topic: 'Gestión de Reputación Corporativa en la era de los Deepfakes',
-    time: 'Jueves 22 Oct | 09:00 AM',
-    bio: 'Autor de diversos libros sobre comunicación corporativa, relaciones públicas y mitigación de desinformación masiva en entornos institucionales y gubernamentales.'
+    name: 'Sergio Alvarado',
+    role: 'Docente e Investigador Senior',
+    company: 'UNIMINUTO - Colombia',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: sergioAlvaradoImg,
+    topic: 'Más allá de las pantallas: narrativas transmedia y el futuro de los medios públicos',
+    time: 'Jueves 03 Dic – 10:00 a.m.',
+    bio: 'Docente e investigador senior en la Corporación Universitaria Minuto de Dios (UNIMINUTO) en Colombia. Especializado en cibercultura, arte digital, comunicación política y el desarrollo de narrativas transmedia.'
   },
   {
     id: 5,
-    name: 'Mg. Lucía Thorne',
-    role: 'Chief Content Officer',
-    company: 'Digital Trends Perú',
+    name: 'Jesús Portuguez',
+    role: 'Comunicador Audiovisual & Locutor',
+    company: 'Voz de Metro, KFC, Pizza Hut, BCP, Pepsi',
     country: 'Perú',
     flagEmoji: '🇵🇪',
-    photo: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=600',
-    topic: 'Estrategias de Podcast y Periodismo Sonoro 360°',
-    time: 'Viernes 23 Oct | 03:00 PM',
-    bio: 'Pionera en el desarrollo de podcasts nativos digitales con millones de reproducciones en Spotify y Apple Podcasts en América Latina. Docente y consultora en medios sonoros inmersivos.'
+    photo: jesusPortuguezImg,
+    topic: 'Más allá de las pantallas: narrativas transmedia y el futuro de los medios públicos',
+    time: 'Jueves 03 Dic – 03:00 p.m.',
+    bio: 'Comunicador Audiovisual Multimedia y locutor comercial con 5 años de trayectoria. Es la voz oficial de promociones de tv de Metro, y voz de marcas como KFC, Pizza Hut, BCP y Pepsi.'
   }
 ];
 

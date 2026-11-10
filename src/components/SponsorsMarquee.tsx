@@ -50,28 +50,18 @@ export const SponsorsMarquee: React.FC = () => {
         </p>
       </div>
 
-      {/* Marquee with fade mask overlays */}
-      <div className="relative w-full overflow-hidden flex items-center py-2">
-        {/* Left Fade Edge */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-36 bg-gradient-to-r from-[#04010A] to-transparent z-10 pointer-events-none" />
-        {/* Right Fade Edge */}
-        <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-36 bg-gradient-to-l from-[#04010A] to-transparent z-10 pointer-events-none" />
-
-        {/* Endless Moving Track */}
-        <div className="animate-marquee flex items-center gap-6 sm:gap-8 whitespace-nowrap py-3 cursor-pointer">
-          {marqueeItems.map((sponsor, index) => (
-            <div
-              key={`${sponsor.name}-${index}`}
-              className="flex items-center justify-center w-52 sm:w-60 h-28 sm:h-32 px-5 py-4 rounded-2xl bg-white border-2 border-white/90 hover:border-[#C6FF00] shadow-[0_10px_30px_rgba(0,0,0,0.6)] hover:shadow-[0_15px_35px_rgba(198,255,0,0.25)] hover:scale-105 transition-all duration-300 group shrink-0"
-            >
-              <img
-                src={sponsor.logo}
-                alt={sponsor.name}
-                className="max-h-16 sm:max-h-20 w-auto max-w-full object-contain select-none group-hover:scale-105 transition-transform duration-300"
-                loading="lazy"
-              />
-            </div>
-          ))}
+      {/* Coming Soon Placeholder for Sponsors */}
+      <div className="max-w-2xl mx-auto px-4 text-center py-6">
+        <div className="p-8 rounded-3xl bg-[#090414] border border-[#7135F5]/30 shadow-2xl shadow-black flex flex-col items-center justify-center">
+          <div className="w-12 h-12 rounded-2xl bg-[#7135F5]/20 border border-[#7135F5]/50 flex items-center justify-center mb-4">
+            <span className="w-3 h-3 rounded-full bg-[#C6FF00] animate-ping" />
+          </div>
+          <h4 className="font-heading font-black text-lg text-white mb-2">
+            Próximamente
+          </h4>
+          <p className="text-slate-400 text-xs sm:text-sm max-w-md">
+            Estamos confirmando las marcas y alianzas estratégicas que formarán parte de COM360 2026.
+          </p>
         </div>
       </div>
     </section>

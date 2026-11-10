@@ -129,7 +129,7 @@ export async function generateComuniCardPdf(data: ComuniCardData): Promise<void>
 
   ctx.fillStyle = '#C6FF00';
   ctx.font = '700 15px "Poppins", sans-serif';
-  ctx.fillText('SEMANA DE LA COMUNICACIÓN 2026', logoX + 105, headerY + 104);
+  ctx.fillText('COMWEEK 2026', logoX + 105, headerY + 104);
 
   // Edition Badge
   ctx.fillStyle = 'rgba(113, 53, 245, 0.4)';

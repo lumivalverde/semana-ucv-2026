@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Calendar, MapPin, ArrowRight, Play, Hourglass, ShieldCheck, Users } from 'lucide-react';
+import { Calendar, MapPin, ArrowRight, Play, Hourglass, Users } from 'lucide-react';
 import isotipoImg from '../assets/images/ISOTIPO.png';
 
 interface HeroProps {
@@ -67,7 +67,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRegister }) => {
             {/* Event status badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0C061A] border border-[#7135F5]/60 text-[#C6FF00] text-xs sm:text-sm font-semibold uppercase tracking-wider shadow-md shadow-black">
               <span className="w-2.5 h-2.5 rounded-full bg-[#C6FF00] animate-ping" />
-              SEMANA DE LA COMUNICACIÓN 2026
+              COMWEEK 2026
             </div>
 
             {/* Isotipo original tal cual fue subido por el usuario */}
@@ -76,16 +76,14 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRegister }) => {
                 <img
                   src={isotipoImg}
                   alt="Isotipo Semana de Comunicadores UCV 2026"
-                  className="w-72 sm:w-96 md:w-[460px] max-w-full h-auto object-contain drop-shadow-[0_15px_35px_rgba(113,53,245,0.4)] transition-transform duration-500 group-hover:scale-105 select-none"
+                  className="w-72 sm:w-96 md:w-[460px] max-w-full h-auto object-contain drop-shadow-[0_15px_35px_rgba(113,53,245,0.4)] transition-transform duration-500 group-hover:scale-105 select-none px-0 mx-0"
                   loading="eager"
                 />
               </div>
             </div>
 
             <p className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
-              El evento cumbre y referente del periodismo, producción audiovisual, marketing y
-              tecnologías de la comunicación. Cinco días intensivos con líderes de la industria
-              global.
+              ¡Se viene la primera edición del gran encuentro de la comunicación! Cinco días, grandes referentes y experiencias que conectarán el periodismo, el marketing, la producción audiovisual y las nuevas tecnologías. ¡No te lo puedes perder!
             </p>
 
             {/* Key Event Details Pills */}
@@ -170,11 +168,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRegister }) => {
               </div>
 
               {/* Bottom Badges */}
-              <div className="mt-6 pt-6 border-t border-[#7135F5]/30 flex items-center justify-between text-xs text-slate-300">
-                <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-[#C6FF00]" />
-                  <span>Certificado Oficial UCV</span>
-                </div>
+              <div className="mt-6 pt-6 border-t border-[#7135F5]/30 flex items-center justify-center text-xs text-slate-300">
                 <div className="flex items-center gap-2">
                   <Users className="w-4 h-4 text-[#9B6CFF]" />
                   <span>Aforo Limitado</span>

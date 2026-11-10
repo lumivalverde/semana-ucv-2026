@@ -5,7 +5,7 @@ export const Stats: React.FC = () => {
     { number: '18+', label: 'Expositores Internacionales', highlight: false },
     { number: '05', label: 'Días de Conferencias', highlight: true },
     { number: '10+', label: 'Paneles Magistrales', highlight: false },
-    { number: '+3000', label: 'Comunicadores Conectados', highlight: true },
+    { number: '+100', label: 'Comunicadores Conectados', highlight: true },
   ];
 
   return (

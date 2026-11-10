@@ -30,14 +30,13 @@ export const Speakers: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
             <div className="text-[#C6FF00] font-bold text-sm tracking-wider uppercase mb-2">
-              Keynote Speakers
+              Invitados especiales
             </div>
             <h2 className="font-heading font-black text-3xl sm:text-5xl text-white">
-              Ponentes de <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#9B6CFF] to-[#C6FF00]">Clase Mundial</span>
+              Conoce a nuestros protagonistas
             </h2>
             <p className="text-slate-400 mt-2 max-w-xl text-base font-normal">
-              Haz clic en cualquiera de nuestras figuras destacadas para desplegar su perfil
-              completo, trayectoria y temas de ponencia.
+              Descubre a los profesionales que compartirán su experiencia, trayectoria y visión sobre el futuro de la comunicación.
             </p>
           </div>
 

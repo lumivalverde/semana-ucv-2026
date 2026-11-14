@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { MapPin } from 'lucide-react';
-import croquisUcvImg from '../assets/images/croquis-ucv.png';
+import croquisUcvImg from '../assets/images/croquis-ucv.webp';
 
 interface HotspotItem {
   id: string;
@@ -156,7 +156,7 @@ export const CampusMap: React.FC = () => {
               src={croquisUcvImg}
               alt="Croquis Campus UCV"
               className="img-campus select-none"
-              loading="lazy"
+              fetchPriority="high"
             />
 
             {/* Puntos interactivos del campus */}

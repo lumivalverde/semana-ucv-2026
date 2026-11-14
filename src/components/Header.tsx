@@ -22,6 +22,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenRegister }) => {
     { name: 'Inicio', href: '#inicio' },
     { name: 'Ponentes', href: '#ponentes' },
     { name: 'Agenda', href: '#agenda' },
+    { name: 'Campus', href: '#campus' },
+    { name: 'Comunidad', href: '#comunidad' },
     { name: 'Sponsors', href: '#sponsors' },
   ];
 

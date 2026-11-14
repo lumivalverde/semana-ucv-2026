@@ -85,3 +85,148 @@ body {
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+
+/* Interactive 3D Campus Map Styles */
+.escena-campus {
+  perspective: 1400px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.mapa-3d {
+  position: relative;
+  border-radius: 20px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  transition: transform 0.15s ease-out;
+  transform-style: preserve-3d;
+  background: #111;
+}
+
+.img-campus {
+  width: 100%;
+  display: block;
+  border-radius: 20px;
+}
+
+.brillo-mouse {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mapa-3d:hover .brillo-mouse {
+  opacity: 1;
+}
+
+.hotspot {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  transform: translate(-50%, -50%) translateZ(25px);
+  cursor: pointer;
+  z-index: 5;
+  outline: none;
+}
+
+.pulso {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  animation: ondaRadar 1.8s infinite ease-out;
+}
+
+.pulso.azul { border: 3px solid #3b82f6; background: rgba(59, 130, 246, 0.3); }
+.pulso.rosa { border: 3px solid #ec4899; background: rgba(236, 72, 153, 0.3); }
+.pulso.verde { border: 3px solid #22c55e; background: rgba(34, 197, 94, 0.3); }
+.pulso.naranja { border: 3px solid #f97316; background: rgba(249, 115, 22, 0.3); }
+.pulso.rojo { border: 3px solid #ef4444; background: rgba(239, 68, 68, 0.3); }
+.pulso.amarillo { border: 3px solid #eab308; background: rgba(234, 179, 8, 0.3); }
+
+@keyframes ondaRadar {
+  0% { transform: scale(0.85); opacity: 1; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+.tarjeta-info {
+  position: absolute;
+  bottom: 44px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  width: 230px;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #fff;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s ease;
+  pointer-events: none;
+  text-align: left;
+}
+
+.tarjeta-info .badge {
+  display: inline-block;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+}
+
+.badge.azul { background: #3b82f6; }
+.badge.rosa { background: #ec4899; }
+.badge.verde { background: #22c55e; }
+.badge.naranja { background: #f97316; }
+.badge.rojo { background: #ef4444; }
+.badge.amarillo { background: #eab308; color: #111; }
+
+.tarjeta-info h4 {
+  margin: 0 0 4px 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #38bdf8;
+}
+
+.tarjeta-info p {
+  margin: 0;
+  font-size: 12.5px;
+  color: #cbd5e1;
+  line-height: 1.4;
+}
+
+.hotspot:hover .tarjeta-info,
+.hotspot:focus .tarjeta-info,
+.hotspot.activo .tarjeta-info {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+  z-index: 30;
+}
+
+.hotspot:hover,
+.hotspot:focus,
+.hotspot.activo {
+  z-index: 30;
+}
+
+/* Ocultar marca de agua y enlaces de branding de SociableKIT sin afectar flechas < > */
+a[href*="sociablekit.com"],
+.sk_branding,
+.sk-watermark {
+  display: none !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+}
+

@@ -44,6 +44,16 @@ export const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
+                <a href="#campus" className="hover:text-[#C6FF00] transition-colors">
+                  Croquis del Campus
+                </a>
+              </li>
+              <li>
+                <a href="#comunidad" className="hover:text-[#C6FF00] transition-colors">
+                  Comunidad COM360
+                </a>
+              </li>
+              <li>
                 <a href="#sponsors" className="hover:text-[#C6FF00] transition-colors">
                   Aliados & Sponsors
                 </a>

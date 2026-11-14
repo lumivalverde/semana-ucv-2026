@@ -4,6 +4,8 @@ import { Hero } from './components/Hero';
 import { Stats } from './components/Stats';
 import { Speakers } from './components/Speakers';
 import { Agenda } from './components/Agenda';
+import { CampusMap } from './components/CampusMap';
+import { CommunityTikTok } from './components/CommunityTikTok';
 import { SponsorsMarquee } from './components/SponsorsMarquee';
 import { Footer } from './components/Footer';
 import { RegisterModal } from './components/RegisterModal';
@@ -33,6 +35,12 @@ export default function App() {
 
         {/* Academic Program Agenda by Days */}
         <Agenda />
+
+        {/* Interactive 3D Campus Map */}
+        <CampusMap />
+
+        {/* Comunidad COM360 TikTok Feed Section */}
+        <CommunityTikTok />
 
         {/* Sponsors & Media Partners Marquee */}
         <SponsorsMarquee />

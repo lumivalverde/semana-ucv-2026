@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import { SPEAKERS } from '../data';
 import { Speaker } from '../types';
 import { SpeakerModal } from './SpeakerModal';
+import { CountryFlag } from './CountryFlag';
 
 export const Speakers: React.FC = () => {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -68,7 +69,7 @@ export const Speakers: React.FC = () => {
             id="speakers-track"
             className="flex gap-6 transition-transform duration-500 ease-out no-scrollbar overflow-x-auto snap-x snap-mandatory pb-4"
           >
-            {SPEAKERS.map((speaker) => (
+            {SPEAKERS.map((speaker, index) => (
               <div
                 key={speaker.id}
                 onClick={() => setSelectedSpeaker(speaker)}
@@ -80,10 +81,24 @@ export const Speakers: React.FC = () => {
                       src={speaker.photo}
                       alt={speaker.name}
                       referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className={`${
+                        index === 0
+                          ? 'p-0 mx-0 -mt-[50px] mb-0 w-[268px] h-[306px]'
+                          : index === 3
+                            ? 'w-full -mt-[61px] h-[317px]'
+                            : index === 4
+                              ? 'w-full -mt-[49px] h-[306px]'
+                              : index === 6
+                                ? 'w-full -mt-[50px] h-[305px]'
+                                : index === 7
+                                  ? 'w-full -mt-[32px] h-[289px]'
+                                  : index === 8
+                                    ? 'w-full -mt-[25px] mb-0 h-[281px]'
+                                    : 'w-full h-full'
+                      } object-cover object-top transition-transform duration-500 group-hover:scale-105`}
                     />
-                    <div className="absolute top-3 right-3 bg-[#030108]/90 backdrop-blur-md border border-[#7135F5]/50 text-xs text-white px-2.5 py-1 rounded-full font-semibold flex items-center gap-1 shadow-md shadow-black">
-                      <span>{speaker.flagEmoji || '📍'}</span>
+                    <div className="absolute top-3 right-3 bg-[#030108]/90 backdrop-blur-md border border-[#7135F5]/50 text-xs text-white px-2.5 py-1 rounded-full font-semibold flex items-center gap-1.5 shadow-md shadow-black">
+                      <CountryFlag country={speaker.country} />
                       <span>{speaker.country}</span>
                     </div>
                   </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Clock, MapPin } from 'lucide-react';
+import { Clock, MapPin, ArrowRight } from 'lucide-react';
 import { AGENDA_DATA } from '../data';
 import flyerSabado from '../assets/images/flyer_sabado.jpg';
 
@@ -95,7 +95,7 @@ export const Agenda: React.FC = () => {
 
           {/* Flyer oficial del Campeonato Deportivo para el Día 6 */}
           {activeDay === 6 && (
-            <div className="mt-8 pt-4 flex flex-col items-center">
+            <div className="mt-8 pt-4 flex flex-col items-center gap-6">
               <div className="max-w-xl w-full rounded-3xl overflow-hidden border-2 border-[#7135F5]/50 shadow-[0_20px_50px_rgba(0,0,0,0.9)] hover:border-[#C6FF00] transition-all duration-300 bg-[#080312]">
                 <img
                   src={flyerSabado}
@@ -104,6 +104,16 @@ export const Agenda: React.FC = () => {
                   loading="lazy"
                 />
               </div>
+
+              <a
+                href="https://forms.gle/fr6rY2BNjUVVbcAD9"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-8 py-4 bg-[#C6FF00] hover:bg-[#b0e600] text-black font-heading font-black text-base uppercase rounded-xl border-2 border-[#C6FF00] shadow-2xl shadow-[#C6FF00]/25 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-3 cursor-pointer group"
+              >
+                <span>INSCRÍBETE AQUÍ</span>
+                <ArrowRight className="w-5 h-5 text-black group-hover:translate-x-1 transition-transform" />
+              </a>
             </div>
           )}
         </div>

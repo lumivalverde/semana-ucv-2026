@@ -4,6 +4,10 @@ import miriamCahuanaImg from './assets/images/speakers/miriam_cahuana.png';
 import cesarSantillanImg from './assets/images/speakers/cesar_santillan.png';
 import sergioAlvaradoImg from './assets/images/speakers/sergio_alvarado.png';
 import jesusPortuguezImg from './assets/images/speakers/jesus_portuguez.jpg';
+import pabloVasquezImg from './assets/images/speakers/pablo_vasquez.jpg';
+import armandoAvalosImg from './assets/images/speakers/armando_avalos.png';
+import everMonteroImg from './assets/images/speakers/ever_montero.png';
+import joseChemoGuerreroImg from './assets/images/speakers/jose_chemo_guerrero.jpg';
 
 export const SPEAKERS: Speaker[] = [
   {
@@ -11,8 +15,8 @@ export const SPEAKERS: Speaker[] = [
     name: 'Jorge Mario Pérez',
     role: 'Productor de UNIMINUTO',
     company: 'Radio Colombia',
-    country: 'Perú',
-    flagEmoji: '🇵🇪',
+    country: 'Colombia',
+    flagEmoji: '🇨🇴',
     photo: jorgeMarioPerezImg,
     topic: 'De la radio al podcast: evolución, historia y nuevas formas de conectar con las audiencias',
     time: 'Jueves 03 Dic - 09:00 a.m.',
@@ -45,10 +49,10 @@ export const SPEAKERS: Speaker[] = [
   {
     id: 4,
     name: 'Sergio Alvarado',
-    role: 'Docente e Investigador Senior',
-    company: 'UNIMINUTO - Colombia',
-    country: 'Perú',
-    flagEmoji: '🇵🇪',
+    role: 'Docente e investigador senior',
+    company: 'Corporación Universitaria Minuto de Dios - Colombia',
+    country: 'Colombia',
+    flagEmoji: '🇨🇴',
     photo: sergioAlvaradoImg,
     topic: 'Más allá de las pantallas: narrativas transmedia y el futuro de los medios públicos',
     time: 'Jueves 03 Dic – 10:00 a.m.',
@@ -65,6 +69,54 @@ export const SPEAKERS: Speaker[] = [
     topic: 'Más allá de las pantallas: narrativas transmedia y el futuro de los medios públicos',
     time: 'Jueves 03 Dic – 03:00 p.m.',
     bio: 'Comunicador Audiovisual Multimedia y locutor comercial con 5 años de trayectoria. Es la voz oficial de promociones de tv de Metro, y voz de marcas como KFC, Pizza Hut, BCP y Pepsi.'
+  },
+  {
+    id: 6,
+    name: 'Pablo Vásquez',
+    role: 'Comunicador Audiovisual',
+    company: '',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: pabloVasquezImg,
+    topic: 'El arte de construir historias que conectan e impactan',
+    time: 'Jueves 03 Dic – 04:00 p.m.',
+    bio: 'Guionista, escritor y docente de cine y televisión con más de 30 años de trayectoria. Ha escrito éxitos como Travesuras del corazón, Nacida para triunfar y Cumbia Pop. Ha creado contenido juvenil coproducido con Nickelodeon, disponible en Amazon Prime Video.'
+  },
+  {
+    id: 7,
+    name: 'Armando Ávalos',
+    role: 'Periodista',
+    company: 'Comunicación Corporativa del Poder Judicial del Perú',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: armandoAvalosImg,
+    topic: 'Periodismo en la era de la inteligencia artificial: nuevos desafíos y oportunidades para informar',
+    time: 'Jueves 03 Dic – 06:00 p.m.',
+    bio: 'Periodista de investigación, productor de televisión, docente universitario y autor editorial, con más de tres décadas de trayectoria en Latina Televisión, y actualmente se desempeña como Subgerente de Información en Comunicación Corporativa del Poder Judicial del Perú.'
+  },
+  {
+    id: 8,
+    name: 'Ever Montero',
+    role: 'Comunicador',
+    company: '',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: everMonteroImg,
+    topic: 'El Arte de Comunicar y Representar: Relaciones Públicas y Protocolo en la Universidad Pública',
+    time: 'Jueves 03 Dic – 07:00 p.m.',
+    bio: 'Licenciado colegiado en Ciencias de la Comunicación por la UCV y estudiante de Maestría en Gestión Pública en la UNMSM, especializado en publicidad, marketing, audiovisuales y gestión pública.'
+  },
+  {
+    id: 9,
+    name: 'José “Chemo” Guerrero',
+    role: 'Coordinador audiovisual de Make Music',
+    company: 'Make Music',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: joseChemoGuerreroImg,
+    topic: 'Producción audiovisual en acción: estrategias y experiencias en la industria musical',
+    time: 'Jueves 03 Dic – 08:00 p.m.',
+    bio: 'Coordinador del equipo audiovisual de Make Music, vinculado a la industria musical y especializado en producción audiovisual, creación de contenidos musicales y desarrollo de proyectos para plataformas digitales.'
   }
 ];
 

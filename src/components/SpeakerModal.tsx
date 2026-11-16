@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { X, Globe, Clock, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Speaker } from '../types';
+import { CountryFlag } from './CountryFlag';
 
 interface SpeakerModalProps {
   speaker: Speaker | null;
@@ -73,13 +74,18 @@ export const SpeakerModal: React.FC<SpeakerModalProps> = ({ speaker, onClose }) 
                       {speaker.name}
                     </h3>
                     <p className="text-base text-slate-200 font-semibold mt-1">
-                      {speaker.role} — <span className="text-[#9B6CFF]">{speaker.company}</span>
+                      {speaker.role}
+                      {speaker.company && (
+                        <>
+                          {' '}
+                          — <span className="text-[#9B6CFF]">{speaker.company}</span>
+                        </>
+                      )}
                     </p>
-                    <p className="text-xs sm:text-sm text-slate-400 mt-1 flex items-center gap-1.5">
+                    <p className="text-xs sm:text-sm text-slate-400 mt-1 flex items-center gap-2">
                       <Globe className="w-4 h-4 text-[#C6FF00]" />
-                      <span>
-                        {speaker.flagEmoji} {speaker.country}
-                      </span>
+                      <CountryFlag country={speaker.country} />
+                      <span>{speaker.country}</span>
                     </p>
                   </div>
 
@@ -136,8 +142,8 @@ export const SpeakerModal: React.FC<SpeakerModalProps> = ({ speaker, onClose }) 
                   <div className="absolute inset-0 bg-gradient-to-t from-[#030108]/95 via-transparent to-transparent pointer-events-none" />
 
                   {/* Floating Country Badge */}
-                  <div className="absolute top-4 left-4 bg-[#030108]/90 backdrop-blur-md border border-[#7135F5]/50 text-xs text-white px-3 py-1.5 rounded-full font-semibold flex items-center gap-1.5 shadow-lg shadow-black">
-                    <span className="text-base leading-none">{speaker.flagEmoji || '📍'}</span>
+                  <div className="absolute top-4 left-4 bg-[#030108]/90 backdrop-blur-md border border-[#7135F5]/50 text-xs text-white px-3 py-1.5 rounded-full font-semibold flex items-center gap-2 shadow-lg shadow-black">
+                    <CountryFlag country={speaker.country} />
                     <span>{speaker.country}</span>
                   </div>
 

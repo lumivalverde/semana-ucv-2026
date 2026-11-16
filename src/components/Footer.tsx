@@ -1,5 +1,6 @@
 import React from 'react';
 import { Instagram } from 'lucide-react';
+import logoUcvFooter from '../assets/images/logo_ucv_footer.png';
 
 export const Footer: React.FC = () => {
   return (
@@ -8,17 +9,18 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-[#7135F5]/25">
           {/* UCV Brand Info */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-[#7135F5] border border-[#9B6CFF] flex items-center justify-center font-heading font-black text-[#C6FF00] text-lg shadow-md shadow-[#7135F5]/40">
-                UCV
-              </div>
-              <span className="font-heading font-black text-lg text-white leading-tight">
-                UNIVERSIDAD CÉSAR VALLEJO
-              </span>
+            <div>
+              <img
+                src={logoUcvFooter}
+                alt="Universidad César Vallejo"
+                className="h-14 w-auto object-contain select-none"
+              />
+              <p className="text-sm text-[#C6FF00] font-normal mt-2">
+                Campus Los Olivos
+              </p>
             </div>
             <p className="text-xs text-slate-400 leading-relaxed font-normal">
-              Escuela Profesional de Ciencias de la Comunicación. Formando profesionales líderes e
-              innovadores con valores, sentido humano y visión global.
+              Ciencias de la Comunicación: formando líderes innovadores, humanos y con visión global.
             </p>
           </div>
 

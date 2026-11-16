@@ -127,7 +127,7 @@ export const AGENDA_DATA: Record<number, AgendaItem[]> = {
       time: '10:00 a.m.',
       title: 'El mundo profesional actual: retos, oportunidades y aprendizajes',
       speaker: 'Sergio Mejía',
-      location: 'Auditorio Los Caynas',
+      location: 'Sala de audiencias de la EP Derecho',
       type: 'Conferencia'
     },
     {
@@ -135,7 +135,7 @@ export const AGENDA_DATA: Record<number, AgendaItem[]> = {
       time: '10:30 a.m.',
       title: 'Periodismo político y actualidad: retos y desafíos de la información en el Perú',
       speaker: 'Jorge Calmet',
-      location: 'Aula 205 Pabellón A',
+      location: 'Salón 205 Pabellón A',
       type: 'Conferencia'
     },
     {
@@ -143,7 +143,7 @@ export const AGENDA_DATA: Record<number, AgendaItem[]> = {
       time: '02:00 p.m.',
       title: 'Marketing y gestión de proyectos: estrategias e innovación',
       speaker: 'David Gallardo',
-      location: 'Aula 205 Pabellón A',
+      location: 'Salón 205 Pabellón A',
       type: 'Conferencia'
     },
     {
@@ -159,7 +159,7 @@ export const AGENDA_DATA: Record<number, AgendaItem[]> = {
       time: '06:30 p.m.',
       title: 'Periodismo digital: narrativas, innovación y transformación de la comunicación',
       speaker: 'Leah Sacín',
-      location: 'Aula 205 Pabellón A',
+      location: 'Salón 205 Pabellón A',
       type: 'Conferencia'
     },
     {
@@ -174,11 +174,51 @@ export const AGENDA_DATA: Record<number, AgendaItem[]> = {
   2: [
     {
       id: 'd2-1',
-      time: 'Por confirmar',
-      title: 'Actividades y Ponencias de la jornada',
-      speaker: 'Por confirmar',
-      location: 'Por confirmar',
-      type: 'Por confirmar'
+      time: '10:15 a.m.',
+      title: 'La historia también se comunica: contando el pasado en la era digital',
+      speaker: 'Daniel Montoya',
+      location: 'Sala de audiencias de la EP Derecho',
+      type: 'Ponencia'
+    },
+    {
+      id: 'd2-2',
+      time: '11:15 a.m.',
+      title: 'Frente a cámaras: el arte de comunicar y conectar con la audiencia',
+      speaker: 'Samantha Sipán',
+      location: 'Google Lab',
+      type: 'Ponencia'
+    },
+    {
+      id: 'd2-3',
+      time: '02:10 p.m.',
+      title: 'Detrás de la pantalla: cómo la publicidad conecta marcas y audiencias',
+      speaker: 'Karina Daviran',
+      location: 'CPA - Centro de Producción Audiovisual',
+      type: 'Ponencia'
+    },
+    {
+      id: 'd2-4',
+      time: '03:10 p.m.',
+      title: 'Más allá de las noticias: el poder de las relaciones públicas',
+      speaker: 'Jhon Cano',
+      location: 'Google Lab',
+      type: 'Ponencia'
+    },
+    {
+      id: 'd2-5',
+      time: '04:15 p.m.',
+      title: 'Comunicar sin fronteras: nuevos retos de la comunicación global',
+      speaker: 'Julián Duque Rojas',
+      location: 'Salón 205 Pabellón A',
+      type: 'Ponencia'
+    },
+    {
+      id: 'd2-6',
+      time: '08:00 p.m.',
+      title: 'De un video a una comunidad: el mundo de la creación digital',
+      speaker: 'QUEBUENARDO',
+      location: 'CPA - Centro de Producción Audiovisual',
+      type: 'Ponencia'
     }
   ],
   3: [
@@ -200,14 +240,6 @@ export const AGENDA_DATA: Record<number, AgendaItem[]> = {
     },
     {
       id: 'd3-3',
-      time: '03:00 p.m.',
-      title: 'De la idea a la pantalla: vive la experiencia de la producción audiovisual',
-      speaker: 'Andrés Manco',
-      location: 'CPA Centro de Producción Audiovisual',
-      type: 'Taller'
-    },
-    {
-      id: 'd3-4',
       time: '05:00 p.m.',
       title: 'Marcas que impactan: el arte de crear spots publicitarios',
       speaker: 'Kevin Rodriguez',
@@ -215,7 +247,7 @@ export const AGENDA_DATA: Record<number, AgendaItem[]> = {
       type: 'Ponencia'
     },
     {
-      id: 'd3-5',
+      id: 'd3-4',
       time: '07:00 p.m.',
       title: 'Periodismo en las calles: historias, desafíos y realidades',
       speaker: 'Samuel Cortéz',
@@ -223,7 +255,7 @@ export const AGENDA_DATA: Record<number, AgendaItem[]> = {
       type: 'Ponencia'
     },
     {
-      id: 'd3-6',
+      id: 'd3-5',
       time: '08:00 p.m.',
       title: 'Conquista el mundo digital: tendencias y oportunidades del marketing en redes sociales',
       speaker: 'Milagros Maclla',
@@ -231,7 +263,7 @@ export const AGENDA_DATA: Record<number, AgendaItem[]> = {
       type: 'Ponencia'
     },
     {
-      id: 'd3-7',
+      id: 'd3-6',
       time: '08:00 p.m.',
       title: 'De emprendedor a empresario: claves para convertir una idea en negocio',
       speaker: 'Pedro Jacinto & Juan Carlos Cam',
@@ -239,7 +271,7 @@ export const AGENDA_DATA: Record<number, AgendaItem[]> = {
       type: 'Charla'
     },
     {
-      id: 'd3-8',
+      id: 'd3-7',
       time: '09:00 p.m.',
       title: 'Contenido que conecta: estrategias para conquistar las audiencias digitales',
       speaker: 'Yesael Vargas & Jesús León',
@@ -329,44 +361,12 @@ export const AGENDA_DATA: Record<number, AgendaItem[]> = {
       speaker: 'Raquel Arrunátegui',
       location: 'Salón 205 - Pabellón A',
       type: 'Ponencia'
-    },
-    {
-      id: 'd5-2',
-      time: '09:30 a.m.',
-      title: 'La comunicación y multimedia: del periodismo tradicional a las plataformas digitales',
-      speaker: 'Giaan Simón Laveriano',
-      location: 'Por confirmar',
-      type: 'Ponencia'
-    },
-    {
-      id: 'd5-3',
-      time: 'Por confirmar',
-      title: 'Growth Marketing y estrategias digitales para el posicionamiento de marcas en la era digital',
-      speaker: 'Pedro Salazar',
-      location: 'Laboratorio Mac\'s',
-      type: 'Ponencia'
-    },
-    {
-      id: 'd5-4',
-      time: 'Por confirmar',
-      title: 'Detrás del Filtro: Descubre tu perfil de comunicación y estrategias de una reclutadora para comunicadores del futuro',
-      speaker: 'Nicole Carrizales',
-      location: 'Laboratorio Mac\'s',
-      type: 'Taller'
-    },
-    {
-      id: 'd5-5',
-      time: 'Por confirmar',
-      title: 'El poder de la voz en los medios de comunicación',
-      speaker: 'Angelo Talavera',
-      location: 'Por confirmar',
-      type: 'Master class'
     }
   ],
   6: [
     {
       id: 'd6-1',
-      time: '08:00 a.m.',
+      time: 'Por confirmar',
       title: 'Campeonato deportivo de fútbol y vóley',
       speaker: 'COM360',
       location: 'UCV (Campo San Andrés)',

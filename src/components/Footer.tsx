@@ -14,6 +14,8 @@ export const Footer: React.FC = () => {
                 src={logoUcvFooter}
                 alt="Universidad César Vallejo"
                 className="h-14 w-auto object-contain select-none"
+                fetchPriority="high"
+                decoding="sync"
               />
               <p className="text-sm text-[#C6FF00] font-normal mt-2">
                 Campus Los Olivos

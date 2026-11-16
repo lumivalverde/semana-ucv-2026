@@ -81,6 +81,8 @@ export const Speakers: React.FC = () => {
                       src={speaker.photo}
                       alt={speaker.name}
                       referrerPolicy="no-referrer"
+                      fetchPriority="high"
+                      decoding="sync"
                       className={`${
                         index === 0
                           ? 'p-0 mx-0 -mt-[50px] mb-0 w-[268px] h-[306px]'

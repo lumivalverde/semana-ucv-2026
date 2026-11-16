@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Calendar, MapPin, ArrowRight, Play, Hourglass, Users } from 'lucide-react';
+import { Calendar, MapPin, Play, Hourglass, Users } from 'lucide-react';
 import heroBgImg from '../assets/images/hero_bg.jpg';
 
 interface HeroProps {
   onOpenRegister: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onOpenRegister }) => {
+export const Hero: React.FC<HeroProps> = ({ onOpenRegister: _onOpenRegister }) => {
   const [timeLeft, setTimeLeft] = useState({
     days: '00',
     hours: '00',
@@ -61,6 +61,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRegister }) => {
           src={heroBgImg}
           alt="Producción Audiovisual y Comunicación"
           className="w-full h-full object-cover object-center opacity-60 mix-blend-screen filter brightness-95 contrast-110"
+          fetchPriority="high"
+          decoding="sync"
         />
         {/* Gradients to blend smoothly with top and bottom borders and guarantee high contrast */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#030108]/90 via-[#030108]/45 to-[#030108]" />
@@ -101,14 +103,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRegister }) => {
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-              <button
-                onClick={onOpenRegister}
-                id="hero-register-btn"
-                className="w-full sm:w-auto px-8 py-4 bg-[#C6FF00] hover:bg-[#b0e600] text-black font-heading font-black text-base uppercase rounded-xl border-2 border-[#C6FF00] shadow-2xl shadow-[#C6FF00]/25 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-3 cursor-pointer group"
-              >
-                <span>Reserva tu Entrada</span>
-                <ArrowRight className="w-5 h-5 text-black group-hover:translate-x-1 transition-transform" />
-              </button>
               <button
                 onClick={scrollToAgenda}
                 id="hero-agenda-btn"

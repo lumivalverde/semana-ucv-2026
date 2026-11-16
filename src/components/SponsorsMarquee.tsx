@@ -1,12 +1,14 @@
 import React from 'react';
-import elPeruano from '../assets/images/sponsors/el_peruano.png';
-import andina from '../assets/images/sponsors/andina.png';
-import experienciaAmerica from '../assets/images/sponsors/experiencia_america.png';
-import apepo from '../assets/images/sponsors/apepo.png';
-import laParlante from '../assets/images/sponsors/la_parlante.png';
-import macondo from '../assets/images/sponsors/macondo.png';
-import atomica from '../assets/images/sponsors/atomica.png';
-import caricatoons from '../assets/images/sponsors/caricatoons.png';
+import aguasDelInca from '../assets/images/sponsors/aguas_del_inca.webp';
+import apupal from '../assets/images/sponsors/apupal.webp';
+import diamanteTv from '../assets/images/sponsors/diamante_tv.webp';
+import edificaValle from '../assets/images/sponsors/edifica_valle.webp';
+import eleveTravel from '../assets/images/sponsors/eleve_travel.webp';
+import gmaMotors from '../assets/images/sponsors/gma_motors.webp';
+import intimaBiansol from '../assets/images/sponsors/intima_biansol.webp';
+import luckyMotos from '../assets/images/sponsors/lucky_motos.webp';
+import maniaPorElFutbol from '../assets/images/sponsors/mania_por_el_futbol.webp';
+import pasteleriaSraEva from '../assets/images/sponsors/pasteleria_sra_eva.webp';
 
 interface SponsorItem {
   name: string;
@@ -14,31 +16,27 @@ interface SponsorItem {
 }
 
 const SPONSOR_LOGOS: SponsorItem[] = [
-  { name: 'El Peruano', logo: elPeruano },
-  { name: 'Andina', logo: andina },
-  { name: 'Experiencia América', logo: experienciaAmerica },
-  { name: 'APEPO', logo: apepo },
-  { name: 'La Parlante', logo: laParlante },
-  { name: 'Macondo Comunicaciones', logo: macondo },
-  { name: 'Atomica', logo: atomica },
-  { name: 'Caricatoons', logo: caricatoons },
+  { name: 'Aguas del Inca', logo: aguasDelInca },
+  { name: 'APUPAL - Asociación de Propietarios Las Palmeras', logo: apupal },
+  { name: 'Diamante TV', logo: diamanteTv },
+  { name: 'Edifica Valle', logo: edificaValle },
+  { name: 'Eleve Travel', logo: eleveTravel },
+  { name: 'GMA Motors', logo: gmaMotors },
+  { name: 'Íntima Biansol Lencería', logo: intimaBiansol },
+  { name: 'Lucky Motos', logo: luckyMotos },
+  { name: 'Manía por el Fútbol', logo: maniaPorElFutbol },
+  { name: 'Dulcería Sra. Eva', logo: pasteleriaSraEva },
 ];
 
 export const SponsorsMarquee: React.FC = () => {
-  // Multiply items for an uninterrupted continuous looping marquee
-  const marqueeItems = [
-    ...SPONSOR_LOGOS,
-    ...SPONSOR_LOGOS,
-    ...SPONSOR_LOGOS,
-    ...SPONSOR_LOGOS,
-  ];
+  const marqueeItems = [...SPONSOR_LOGOS, ...SPONSOR_LOGOS];
 
   return (
     <section
       id="sponsors"
       className="py-20 bg-[#04010A] border-b border-[#7135F5]/25 overflow-hidden relative shadow-2xl shadow-black"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 text-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center">
         <span className="text-xs font-bold text-[#C6FF00] uppercase tracking-widest inline-block px-3 py-1 rounded-full bg-[#7135F5]/15 border border-[#7135F5]/40 mb-3">
           Alianzas Estratégicas
         </span>
@@ -50,18 +48,34 @@ export const SponsorsMarquee: React.FC = () => {
         </p>
       </div>
 
-      {/* Coming Soon Placeholder for Sponsors */}
-      <div className="max-w-2xl mx-auto px-4 text-center py-6">
-        <div className="p-8 rounded-3xl bg-[#090414] border border-[#7135F5]/30 shadow-2xl shadow-black flex flex-col items-center justify-center">
-          <div className="w-12 h-12 rounded-2xl bg-[#7135F5]/20 border border-[#7135F5]/50 flex items-center justify-center mb-4">
-            <span className="w-3 h-3 rounded-full bg-[#C6FF00] animate-ping" />
-          </div>
-          <h4 className="font-heading font-black text-lg text-white mb-2">
-            Próximamente
-          </h4>
-          <p className="text-slate-400 text-xs sm:text-sm max-w-md">
-            Estamos confirmando las marcas y alianzas estratégicas que formarán parte de COM360 2026.
-          </p>
+      <div className="relative w-full overflow-hidden py-4">
+        {/* Left & Right edge fade masks */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#04010A] to-transparent z-10"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#04010A] to-transparent z-10"
+        />
+
+        <div className="animate-marquee items-center">
+          {marqueeItems.map((sponsor, index) => (
+            <div
+              key={`${sponsor.name}-${index}`}
+              className="mx-3 sm:mx-4 shrink-0 w-44 sm:w-56 h-28 sm:h-32 rounded-2xl bg-white border-2 border-white/90 hover:border-[#C6FF00] shadow-xl shadow-black/60 hover:shadow-[0_0_24px_rgba(198,255,0,0.28)] p-2.5 sm:p-3 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+              title={sponsor.name}
+            >
+              <img
+                src={sponsor.logo}
+                alt={sponsor.name}
+                fetchPriority="high"
+                decoding="sync"
+                className="w-full h-full object-contain rounded-xl select-none"
+                draggable={false}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>

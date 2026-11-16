@@ -136,6 +136,8 @@ export const SpeakerModal: React.FC<SpeakerModalProps> = ({ speaker, onClose }) 
                     src={speaker.photo}
                     alt={speaker.name}
                     referrerPolicy="no-referrer"
+                    fetchPriority="high"
+                    decoding="sync"
                     className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                   />
                   {/* Subtle gradient vignette */}

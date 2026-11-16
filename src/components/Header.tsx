@@ -60,6 +60,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenRegister }) => {
               style={{ height: '72px' }}
               className="h-[72px] w-auto max-w-[260px] object-contain drop-shadow-[0_4px_16px_rgba(113,53,245,0.4)] transition-transform duration-300 group-hover:scale-105"
               loading="eager"
+              fetchPriority="high"
+              decoding="sync"
             />
           </a>
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Stats } from './components/Stats';
@@ -11,8 +11,31 @@ import { Footer } from './components/Footer';
 import { RegisterModal } from './components/RegisterModal';
 
 export default function App() {
-  // Opens automatically when entering the page so users can register immediately
-  const [isRegisterOpen, setIsRegisterOpen] = useState(true);
+  // Closed by default so the registration modal does not pop up automatically on load
+  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+
+  useEffect(() => {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
+    const scrollToTop = () => {
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
+      window.scrollTo(0, 0);
+    };
+
+    scrollToTop();
+
+    window.addEventListener('load', scrollToTop);
+    window.addEventListener('beforeunload', scrollToTop);
+
+    return () => {
+      window.removeEventListener('load', scrollToTop);
+      window.removeEventListener('beforeunload', scrollToTop);
+    };
+  }, []);
 
   const handleRegistrationSuccess = (_fullName: string) => {
     // Registered successfully

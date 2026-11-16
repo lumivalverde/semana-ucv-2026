@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Clock, MapPin, ArrowRight } from 'lucide-react';
 import { AGENDA_DATA } from '../data';
-import flyerSabado from '../assets/images/flyer_sabado.jpg';
 
 export const Agenda: React.FC = () => {
   const [activeDay, setActiveDay] = useState<number>(1);
@@ -98,10 +97,11 @@ export const Agenda: React.FC = () => {
             <div className="mt-8 pt-4 flex flex-col items-center gap-6">
               <div className="max-w-xl w-full rounded-3xl overflow-hidden border-2 border-[#7135F5]/50 shadow-[0_20px_50px_rgba(0,0,0,0.9)] hover:border-[#C6FF00] transition-all duration-300 bg-[#080312]">
                 <img
-                  src={flyerSabado}
+                  src="/flyer-sabado.webp"
                   alt="Flyer Oficial Campeonato Deportivo Fútbol y Vóley - Sábado 5 de Diciembre"
                   className="w-full h-auto object-contain select-none"
-                  loading="lazy"
+                  fetchPriority="high"
+                  decoding="sync"
                 />
               </div>
 

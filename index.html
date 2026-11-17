@@ -17,6 +17,433 @@
     <link rel="preload" as="image" href="/flyer-sabado.webp" fetchpriority="high" />
   </head>
   <body class="bg-[#030108] text-white antialiased selection:bg-[#C6FF00] selection:text-[#111111]">
+    <style>
+      html.com360-scroll-lock,
+      body.com360-scroll-lock {
+        overflow: hidden !important;
+        overscroll-behavior: none !important;
+      }
+
+      #root {
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+
+      #root.com360-ready {
+        opacity: 1;
+      }
+
+      #com360-preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2147483647;
+        background: #050a18 !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        box-sizing: border-box;
+        overflow: hidden;
+        opacity: 1;
+        transition: opacity 0.4s ease;
+        user-select: none;
+        -webkit-user-select: none;
+        font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      #com360-preloader.com360-fade-out {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .com360-pre-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background:
+          radial-gradient(circle at 50% 45%, rgba(168, 85, 247, 0.22) 0%, rgba(15, 23, 42, 0.65) 45%, #050a18 85%),
+          linear-gradient(135deg, #050a18 0%, #0b132b 50%, #0f172a 100%);
+        pointer-events: none;
+      }
+
+      .com360-pre-grid {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image:
+          linear-gradient(to right, rgba(59, 130, 246, 0.08) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(168, 85, 247, 0.08) 1px, transparent 1px);
+        background-size: 36px 36px;
+        pointer-events: none;
+      }
+
+      .com360-pre-glow {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 440px;
+        height: 440px;
+        transform: translate(-50%, -50%);
+        border-radius: 9999px;
+        background: radial-gradient(circle, rgba(168, 85, 247, 0.28) 0%, rgba(59, 130, 246, 0.12) 45%, transparent 72%);
+        filter: blur(40px);
+        pointer-events: none;
+      }
+
+      .com360-pre-content {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .com360-pre-core-wrap {
+        position: relative;
+        width: 248px;
+        height: 248px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .com360-ring {
+        position: absolute;
+        border-radius: 9999px;
+        box-sizing: border-box;
+      }
+
+      .com360-ring-outer {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: 2px solid transparent;
+        border-top-color: #a855f7;
+        border-right-color: rgba(168, 85, 247, 0.45);
+        box-shadow: 0 0 24px rgba(168, 85, 247, 0.35);
+        animation: com360Spin 6s linear infinite;
+      }
+
+      .com360-ring-middle {
+        top: 14px;
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
+        border: 2px solid transparent;
+        border-bottom-color: #3b82f6;
+        border-left-color: rgba(59, 130, 246, 0.5);
+        box-shadow: 0 0 18px rgba(59, 130, 246, 0.28);
+        animation: com360SpinReverse 4.2s linear infinite;
+      }
+
+      .com360-ring-inner {
+        top: 28px;
+        left: 28px;
+        right: 28px;
+        bottom: 28px;
+        border: 1px dashed rgba(250, 204, 21, 0.7);
+        animation: com360Spin 9s linear infinite;
+      }
+
+      .com360-core-circle {
+        position: relative;
+        z-index: 2;
+        width: 172px;
+        height: 172px;
+        border-radius: 9999px;
+        background: #050a18;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 36px rgba(168, 85, 247, 0.24);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .com360-pre-title {
+        font-family: "Archivo Black", Impact, "Arial Black", sans-serif;
+        font-weight: 900;
+        font-size: 40px;
+        line-height: 1;
+        letter-spacing: -0.02em;
+        color: #ffffff;
+        margin: 0;
+      }
+
+      .com360-pre-360 {
+        background: linear-gradient(90deg, #a855f7 0%, #3b82f6 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .com360-waves {
+        margin-top: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        height: 38px;
+      }
+
+      .com360-wave-bar {
+        width: 5px;
+        border-radius: 9999px;
+        animation: com360Wave 1s ease-in-out infinite;
+        transform-origin: center;
+      }
+
+      .com360-wave-bar:nth-child(1) { height: 16px; background: #a855f7; animation-delay: 0ms; }
+      .com360-wave-bar:nth-child(2) { height: 28px; background: #3b82f6; animation-delay: 110ms; }
+      .com360-wave-bar:nth-child(3) { height: 20px; background: #a855f7; animation-delay: 220ms; }
+      .com360-wave-bar:nth-child(4) { height: 36px; background: #facc15; animation-delay: 330ms; }
+      .com360-wave-bar:nth-child(5) { height: 24px; background: #3b82f6; animation-delay: 160ms; }
+      .com360-wave-bar:nth-child(6) { height: 38px; background: #a855f7; animation-delay: 60ms; }
+      .com360-wave-bar:nth-child(7) { height: 24px; background: #3b82f6; animation-delay: 260ms; }
+      .com360-wave-bar:nth-child(8) { height: 36px; background: #facc15; animation-delay: 380ms; }
+      .com360-wave-bar:nth-child(9) { height: 20px; background: #a855f7; animation-delay: 140ms; }
+      .com360-wave-bar:nth-child(10) { height: 28px; background: #3b82f6; animation-delay: 290ms; }
+      .com360-wave-bar:nth-child(11) { height: 16px; background: #a855f7; animation-delay: 90ms; }
+
+      .com360-progress-wrap {
+        margin-top: 26px;
+        width: min(360px, 85vw);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .com360-bar-track {
+        width: 100%;
+        height: 9px;
+        border-radius: 9999px;
+        background: rgba(15, 23, 42, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        overflow: hidden;
+      }
+
+      .com360-bar-fill {
+        width: 0%;
+        height: 100%;
+        border-radius: 9999px;
+        background: linear-gradient(90deg, #a855f7 0%, #3b82f6 55%, #facc15 100%);
+        box-shadow: 0 0 14px rgba(168, 85, 247, 0.65);
+        animation: llenarBarra 3.2s ease-out forwards;
+        will-change: width;
+      }
+
+      .com360-progress-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      #com360-pre-msg {
+        font-size: 13px;
+        font-weight: 500;
+        color: #e2e8f0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      #com360-pre-pct {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 13px;
+        font-weight: 700;
+        color: #facc15;
+        font-variant-numeric: tabular-nums;
+        flex-shrink: 0;
+      }
+
+      @keyframes llenarBarra {
+        0% { width: 0%; }
+        100% { width: 100%; }
+      }
+
+      @keyframes com360Spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      @keyframes com360SpinReverse {
+        0% { transform: rotate(360deg); }
+        100% { transform: rotate(0deg); }
+      }
+
+      @keyframes com360Wave {
+        0%, 100% { transform: scaleY(0.28); opacity: 0.5; }
+        50% { transform: scaleY(1); opacity: 1; }
+      }
+
+      @media (max-width: 640px) {
+        .com360-pre-glow {
+          width: 280px;
+          height: 280px;
+        }
+        .com360-pre-core-wrap {
+          width: 184px;
+          height: 184px;
+        }
+        .com360-ring-middle {
+          top: 10px;
+          left: 10px;
+          right: 10px;
+          bottom: 10px;
+        }
+        .com360-ring-inner {
+          top: 20px;
+          left: 20px;
+          right: 20px;
+          bottom: 20px;
+        }
+        .com360-core-circle {
+          width: 128px;
+          height: 128px;
+        }
+        .com360-pre-title {
+          font-size: 29px;
+        }
+        .com360-waves {
+          margin-top: 20px;
+          height: 32px;
+          gap: 5px;
+        }
+        .com360-wave-bar {
+          width: 4px;
+        }
+        .com360-progress-wrap {
+          margin-top: 20px;
+        }
+        .com360-bar-track {
+          height: 8px;
+        }
+        #com360-pre-msg {
+          font-size: 11px;
+        }
+        #com360-pre-pct {
+          font-size: 12px;
+        }
+      }
+    </style>
+
+    <div id="com360-preloader" role="status" aria-live="polite">
+      <div class="com360-pre-bg"></div>
+      <div class="com360-pre-grid"></div>
+      <div class="com360-pre-glow"></div>
+
+      <div class="com360-pre-content">
+        <div class="com360-pre-core-wrap">
+          <div class="com360-ring com360-ring-outer"></div>
+          <div class="com360-ring com360-ring-middle"></div>
+          <div class="com360-ring com360-ring-inner"></div>
+          <div class="com360-core-circle">
+            <div class="com360-pre-title">COM<span class="com360-pre-360">360</span></div>
+          </div>
+        </div>
+
+        <div class="com360-waves" aria-hidden="true">
+          <span class="com360-wave-bar"></span>
+          <span class="com360-wave-bar"></span>
+          <span class="com360-wave-bar"></span>
+          <span class="com360-wave-bar"></span>
+          <span class="com360-wave-bar"></span>
+          <span class="com360-wave-bar"></span>
+          <span class="com360-wave-bar"></span>
+          <span class="com360-wave-bar"></span>
+          <span class="com360-wave-bar"></span>
+          <span class="com360-wave-bar"></span>
+          <span class="com360-wave-bar"></span>
+        </div>
+
+        <div class="com360-progress-wrap">
+          <div class="com360-bar-track">
+            <div class="com360-bar-fill"></div>
+          </div>
+          <div class="com360-progress-meta">
+            <span id="com360-pre-msg">Sintonizando señal COM360...</span>
+            <span id="com360-pre-pct">0%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        var html = document.documentElement;
+        var body = document.body;
+        var preloader = document.getElementById('com360-preloader');
+        var msgEl = document.getElementById('com360-pre-msg');
+        var pctEl = document.getElementById('com360-pre-pct');
+        var DURATION = 3200;
+        var startTime = performance.now();
+
+        html.classList.add('com360-scroll-lock');
+        body.classList.add('com360-scroll-lock');
+
+        function getMessage(pct) {
+          if (pct < 28) return 'Sintonizando señal COM360...';
+          if (pct < 62) return 'Cargando 18+ expositores...';
+          if (pct < 92) return 'Preparando agenda y conferencias...';
+          return '¡Listo para comenzar!';
+        }
+
+        function finishPreloader() {
+          var root = document.getElementById('root');
+          if (root) {
+            root.classList.add('com360-ready');
+          }
+          html.classList.remove('com360-scroll-lock');
+          body.classList.remove('com360-scroll-lock');
+          html.scrollTop = 0;
+          body.scrollTop = 0;
+          window.scrollTo(0, 0);
+
+          if (preloader) {
+            preloader.classList.add('com360-fade-out');
+            setTimeout(function () {
+              window.scrollTo(0, 0);
+              if (preloader && preloader.parentNode) {
+                preloader.remove();
+              }
+            }, 400);
+          }
+        }
+
+        function update(now) {
+          var elapsed = now - startTime;
+          var ratio = Math.min(elapsed / DURATION, 1);
+          var eased = 1 - Math.pow(1 - ratio, 1.6);
+          var pct = Math.min(100, Math.round(eased * 100));
+
+          if (pctEl) pctEl.textContent = pct + '%';
+          if (msgEl) msgEl.textContent = getMessage(pct);
+
+          if (ratio < 1) {
+            requestAnimationFrame(update);
+          } else {
+            if (pctEl) pctEl.textContent = '100%';
+            if (msgEl) msgEl.textContent = '¡Listo para comenzar!';
+            finishPreloader();
+          }
+        }
+
+        requestAnimationFrame(update);
+      })();
+    </script>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script>

@@ -26,7 +26,6 @@
 
       #root {
         opacity: 0;
-        transition: opacity 0.4s ease;
       }
 
       #root.com360-ready {
@@ -51,14 +50,18 @@
         box-sizing: border-box;
         overflow: hidden;
         opacity: 1;
-        transition: opacity 0.4s ease;
+        transform: scale(1);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+        will-change: opacity, transform;
         user-select: none;
         -webkit-user-select: none;
         font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       }
 
       #com360-preloader.com360-fade-out {
+        transition: opacity 0.7s ease, transform 0.7s ease;
         opacity: 0;
+        transform: scale(1.03);
         pointer-events: none;
       }
 
@@ -404,21 +407,27 @@
           var root = document.getElementById('root');
           if (root) {
             root.classList.add('com360-ready');
+            root.style.opacity = '1';
           }
-          html.classList.remove('com360-scroll-lock');
-          body.classList.remove('com360-scroll-lock');
           html.scrollTop = 0;
           body.scrollTop = 0;
           window.scrollTo(0, 0);
 
           if (preloader) {
-            preloader.classList.add('com360-fade-out');
+            requestAnimationFrame(function () {
+              preloader.classList.add('com360-fade-out');
+            });
             setTimeout(function () {
-              window.scrollTo(0, 0);
               if (preloader && preloader.parentNode) {
                 preloader.remove();
               }
-            }, 400);
+              html.classList.remove('com360-scroll-lock');
+              body.classList.remove('com360-scroll-lock');
+              window.scrollTo(0, 0);
+            }, 750);
+          } else {
+            html.classList.remove('com360-scroll-lock');
+            body.classList.remove('com360-scroll-lock');
           }
         }
 

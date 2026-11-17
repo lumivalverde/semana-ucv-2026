@@ -9,6 +9,7 @@ import { CommunityTikTok } from './components/CommunityTikTok';
 import { SponsorsMarquee } from './components/SponsorsMarquee';
 import { Footer } from './components/Footer';
 import { RegisterModal } from './components/RegisterModal';
+import { Preloader } from './components/Preloader';
 
 export default function App() {
   // Closed by default so the registration modal does not pop up automatically on load
@@ -43,6 +44,9 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#030108] text-white font-sans selection:bg-[#C6FF00] selection:text-[#111111]">
+      {/* Initial Futuristic Preloader */}
+      <Preloader />
+
       {/* Navigation Header */}
       <Header onOpenRegister={() => setIsRegisterOpen(true)} />
 

@@ -2,7 +2,7 @@ import React from 'react';
 
 export const Stats: React.FC = () => {
   const statsList = [
-    { number: '18+', label: 'Expositores Internacionales', highlight: false },
+    { number: '18+', label: 'Expositores', highlight: false },
     { number: '05', label: 'Días de Conferencias', highlight: true },
     { number: '10+', label: 'Paneles Magistrales', highlight: false },
     { number: '+100', label: 'Comunicadores Conectados', highlight: true },

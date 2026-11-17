@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { X, Globe, Clock, Sparkles } from 'lucide-react';
+import { X, Globe, Clock } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Speaker } from '../types';
 import { CountryFlag } from './CountryFlag';
@@ -66,11 +66,7 @@ export const SpeakerModal: React.FC<SpeakerModalProps> = ({ speaker, onClose }) 
               <div className="md:col-span-7 flex flex-col justify-between space-y-6 order-2 md:order-1 pr-0 md:pr-2">
                 <div className="space-y-4">
                   <div>
-                    <span className="inline-flex items-center gap-1.5 text-xs font-bold bg-[#7135F5]/25 text-[#C6FF00] px-3.5 py-1.5 rounded-full uppercase tracking-wider border border-[#7135F5]/50">
-                      <Sparkles className="w-3.5 h-3.5 text-[#C6FF00]" />
-                      Keynote Speaker Internacional
-                    </span>
-                    <h3 className="font-heading font-black text-2xl sm:text-3xl lg:text-4xl text-white mt-3 leading-tight">
+                    <h3 className="font-heading font-black text-2xl sm:text-3xl lg:text-4xl text-white leading-tight">
                       {speaker.name}
                     </h3>
                     <p className="text-base text-slate-200 font-semibold mt-1">

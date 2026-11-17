@@ -85,19 +85,51 @@ export const Speakers: React.FC = () => {
                       decoding="sync"
                       className={`${
                         index === 0
-                          ? 'p-0 mx-0 -mt-[50px] mb-0 w-[268px] h-[306px]'
+                          ? 'p-0 mx-0 -mt-[50px] mb-0 w-[268px] h-[306px] object-top'
                           : index === 3
-                            ? 'w-full -mt-[61px] h-[317px]'
+                            ? 'w-full -mt-[61px] h-[317px] object-top'
                             : index === 4
-                              ? 'w-full -mt-[49px] h-[306px]'
+                              ? 'w-full -mt-[49px] h-[306px] object-top'
                               : index === 6
-                                ? 'w-full -mt-[50px] h-[305px]'
+                                ? 'w-full -mt-[50px] h-[305px] object-top'
                                 : index === 7
-                                  ? 'w-full -mt-[32px] h-[289px]'
+                                  ? 'w-full -mt-[32px] h-[289px] object-top'
                                   : index === 8
-                                    ? 'w-full -mt-[25px] mb-0 h-[281px]'
-                                    : 'w-full h-full'
-                      } object-cover object-top transition-transform duration-500 group-hover:scale-105`}
+                                    ? 'w-full -mt-[25px] mb-0 h-[281px] object-top'
+                                    : index === 9
+                                      ? 'w-full -mt-[70px] h-[326px] object-top'
+                                      : index === 10 || index === 12
+                                        ? 'w-full -mt-[60px] h-[316px] object-top'
+                                        : index === 13 || index === 15 || index === 16
+                                          ? 'w-full -mt-[40px] h-[296px] object-top'
+                                          : index === 14
+                                            ? 'w-full -mt-[75px] h-[331px] object-top'
+                                            : index === 17
+                                              ? 'w-full -mt-[45px] h-[303px] object-top'
+                                              : index === 18
+                                                ? 'w-full -mt-[95px] h-[352px] object-top'
+                                                : index === 21 || index === 23 || index === 24
+                                                  ? 'w-full -mt-[60px] h-[316px] object-top'
+                                                  : index === 22
+                                                    ? 'w-full -mt-[50px] h-[307px] object-top'
+                                                    : index === 25
+                                                      ? 'w-full -mt-[132px] h-[390px] object-top'
+                                                      : index === 26
+                                                        ? 'w-full -mt-[23px] h-[278px] object-top'
+                                                        : index === 27
+                                                          ? 'w-full -mt-[131px] h-[389px] object-top'
+                                                          : index === 28
+                                                            ? 'w-full -mt-[60px] mb-0 mx-0 p-0 h-[316px] object-top'
+                                                            : index === 29
+                                                              ? 'w-full -mt-[21px] h-[276px] object-top'
+                                                              : index === 30 || index === 34
+                                                                ? 'w-full -mt-[44px] h-[301px] object-top'
+                                                                : index === 32
+                                                                  ? 'w-full -mt-[59px] h-[315px] object-top'
+                                                                  : index === 33
+                                                                    ? 'w-full -mt-[11px] h-[269px] object-top'
+                                                                    : 'w-full h-full object-top'
+                      } object-cover transition-transform duration-500 group-hover:scale-105`}
                     />
                     <div className="absolute top-3 right-3 bg-[#030108]/90 backdrop-blur-md border border-[#7135F5]/50 text-xs text-white px-2.5 py-1 rounded-full font-semibold flex items-center gap-1.5 shadow-md shadow-black">
                       <CountryFlag country={speaker.country} />

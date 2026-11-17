@@ -8,6 +8,32 @@ import pabloVasquezImg from './assets/images/speakers/pablo_vasquez.jpg';
 import armandoAvalosImg from './assets/images/speakers/armando_avalos.png';
 import everMonteroImg from './assets/images/speakers/ever_montero.png';
 import joseChemoGuerreroImg from './assets/images/speakers/jose_chemo_guerrero.jpg';
+import sergioMejiaImg from './assets/images/speakers/sergio_mejia.webp';
+import jorgeCalmetImg from './assets/images/speakers/jorge_calmet.webp';
+import davidGallardoImg from './assets/images/speakers/david_gallardo.webp';
+import jorgeBallonImg from './assets/images/speakers/jorge_ballon.webp';
+import leahSacinImg from './assets/images/speakers/leah_sacin.webp';
+import juanchiValenciaImg from './assets/images/speakers/juanchi_valencia.webp';
+import danielMontoyaImg from './assets/images/speakers/daniel_montoya.webp';
+import samanthaSipanImg from './assets/images/speakers/samantha_sipan.webp';
+import karinaDaviranImg from './assets/images/speakers/karina_daviran.webp';
+import jhonCanoImg from './assets/images/speakers/jhon_cano.webp';
+import julianDuqueImg from './assets/images/speakers/julian_duque.webp';
+import yeseniaCiezaImg from './assets/images/speakers/yesenia_cieza.webp';
+import quebuenardoImg from './assets/images/speakers/quebuenardo.webp';
+import josephOvalleImg from './assets/images/speakers/joseph_ovalle.webp';
+import anibalNarroImg from './assets/images/speakers/anibal_narro.webp';
+import kevinRodriguezImg from './assets/images/speakers/kevin_rodriguez.webp';
+import samuelCortezImg from './assets/images/speakers/samuel_cortez.webp';
+import milagrosMacchaImg from './assets/images/speakers/milagros_maccha.webp';
+import pedroJacintoImg from './assets/images/speakers/pedro_jacinto.webp';
+import juanCarloCamImg from './assets/images/speakers/juan_carlo_cam.webp';
+import yesaelVargasImg from './assets/images/speakers/yesael_vargas.webp';
+import jesusLeonImg from './assets/images/speakers/jesus_leon.webp';
+import pedroSalazarImg from './assets/images/speakers/pedro_salazar.webp';
+import giaanSimonImg from './assets/images/speakers/giaan_simon_laveriano.webp';
+import nicoleCarrizalesImg from './assets/images/speakers/nicole_carrizales.webp';
+import raquelArrunateguiImg from './assets/images/speakers/raquel_arrunategui.webp';
 
 export const SPEAKERS: Speaker[] = [
   {
@@ -117,6 +143,318 @@ export const SPEAKERS: Speaker[] = [
     topic: 'Producción audiovisual en acción: estrategias y experiencias en la industria musical',
     time: 'Jueves 03 Dic – 08:00 p.m.',
     bio: 'Coordinador del equipo audiovisual de Make Music, vinculado a la industria musical y especializado en producción audiovisual, creación de contenidos musicales y desarrollo de proyectos para plataformas digitales.'
+  },
+  {
+    id: 10,
+    name: 'Sergio Mejía',
+    role: 'Periodista',
+    company: 'La República',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: sergioMejiaImg,
+    topic: 'El mundo profesional actual: retos, oportunidades y aprendizajes',
+    time: 'Lunes 30 Nov – 10:00 a.m.',
+    bio: 'Periodista y licenciado en Ciencias de la Comunicación por la Universidad de San Martín de Porres (USMP). Actualmente, se desempeña como editor general de contenidos del diario La República, donde cuenta con experiencia en gestión de contenidos periodísticos, producción digital, posicionamiento SEO y desarrollo de estrategias para plataformas digitales.'
+  },
+  {
+    id: 11,
+    name: 'Jorge Calmet',
+    role: 'Creador de contenido digital',
+    company: 'Fundador de Friler',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: jorgeCalmetImg,
+    topic: 'Periodismo político, retos y desafíos de la información en el Perú',
+    time: 'Lunes 30 Nov – 10:30 a.m.',
+    bio: 'Bachiller en Ingeniería Industrial, especializado en Finanzas y estudiante de Data Science en la UPC. Cuenta con más de 10 años de experiencia en el sector financiero y empresarial. Es fundador de Friler y creador de contenido digital con casi 800 mil seguidores, donde aborda temas de actualidad, economía, educación y política, acercando asuntos de interés público a nuevas audiencias mediante un lenguaje claro y dinámico.'
+  },
+  {
+    id: 12,
+    name: 'David Gallardo',
+    role: 'Comunicador Social',
+    company: 'Comunicación e Imagen Institucional de la Dirección de Investigación de Cibercrimen',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: davidGallardoImg,
+    topic: 'Marketing y gestión de proyectos: estrategias e innovación',
+    time: 'Lunes 30 Nov – 02:00 p.m.',
+    bio: 'Comunicador social por la Universidad Nacional de San Cristóbal de Huamanga, con estudios de maestría en Gerencia de Marketing y Gestión Comercial. Cuenta con experiencia en comunicación, marketing y gestión de proyectos, además de acreditación del Project Management Institute (PMI). Actualmente, es especialista en Comunicación e Imagen Institucional de la Dirección de Investigación de Cibercrimen de la PNP.'
+  },
+  {
+    id: 13,
+    name: 'Jorge Ballón',
+    role: 'Periodista',
+    company: '',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: jorgeBallonImg,
+    topic: 'Periodismo contemporáneo: tendencias, desafíos y nuevas narrativas',
+    time: 'Lunes 30 Nov – 03:00 p.m.',
+    bio: 'Licenciado en Ciencias de la Comunicación por la USMP, con estudios de maestría en Periodismo. Cuenta con amplia trayectoria como reportero y presentador en medios como RPP, América Televisión, Canal N y TV Perú. Actualmente, lidera Insurrectos Comunicaciones y dirige Políticamente Insurrectos. Además, fue ganador del Concurso Nacional “Cuidemos el Agua, Cuidemos la Vida”.'
+  },
+  {
+    id: 14,
+    name: 'Leah Sacín',
+    role: 'Periodista',
+    company: '',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: leahSacinImg,
+    topic: 'Periodismo digital: narrativas, innovación y transformación de la comunicación',
+    time: 'Lunes 30 Nov – 06:30 p.m.',
+    bio: 'Licenciada en Comunicación y Periodismo por la UPC, con experiencia en medios como Panamericana Televisión, ATV, Latina y RPP. Actualmente, se desempeña como consultora en comunicaciones, periodista de Políticamente Insurrectos y socia fundadora de Voceras, iniciativa que impulsa las habilidades comunicativas de mujeres profesionales y líderes.'
+  },
+  {
+    id: 15,
+    name: 'Juanchi Valencia',
+    role: 'Director y postproductor',
+    company: '',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: juanchiValenciaImg,
+    topic: 'Postproducción creativa: del montaje a la magia audiovisual',
+    time: 'Lunes 30 Nov – 07:00 p.m.',
+    bio: 'Director creativo y profesional audiovisual, formado en el Instituto Charles Chaplin y EPIC. Cuenta con experiencia en dirección, producción y edición de contenidos publicitarios para marcas como Wong, POND’S, Peugeot y Axe. También se desempeñó como director y postproductor de Jorge Luna, participando en el desarrollo de contenidos digitales y proyectos audiovisuales.'
+  },
+  {
+    id: 16,
+    name: 'Daniel Montoya',
+    role: 'Comunicación Digital',
+    company: '“Daniel en la Historia”',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: danielMontoyaImg,
+    topic: 'La historia también se comunica: contando el pasado en la era digital',
+    time: 'Martes 01 Dic. – 11:00 a.m.',
+    bio: 'Creador de contenido de «Daniel en la Historia». Mantiene una estrecha colaboración con el Comité Peruano Memoria del Mundo de la UNESCO, vinculando la comunicación digital con la difusión de la historia y la memoria documental.'
+  },
+  {
+    id: 17,
+    name: 'Samantha Sipán',
+    role: 'Comunicación Audiovisual',
+    company: '“Viajando con Samantha”',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: samanthaSipanImg,
+    topic: 'Frente a cámaras: el arte de comunicar y conectar con la audiencia',
+    time: 'Martes 01 Dic. – 11:15 a.m.',
+    bio: 'Conductora de televisión y presentadora de «Viajando con Samantha» y «Sami Magazine». Su trabajo se desarrolla en la conducción y presentación de contenidos audiovisuales para distintas audiencias.'
+  },
+  {
+    id: 18,
+    name: 'Karina Daviran',
+    role: 'Publicidad',
+    company: 'Canal Diamante TV',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: karinaDaviranImg,
+    topic: 'Detrás de la pantalla: cómo la publicidad conecta marcas y audiencias',
+    time: 'Martes 01 Dic. – 02:10 p.m.',
+    bio: 'Directora comercial de Canal Diamante TV. Se desempeña en el ámbito comercial de los medios televisivos, vinculando los espacios y contenidos del canal con las necesidades de marcas y anunciantes.'
+  },
+  {
+    id: 19,
+    name: 'Jhon Cano',
+    role: 'Periodista',
+    company: 'Premium Comunicaciones',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: jhonCanoImg,
+    topic: 'Más allá de las noticias: el poder de las relaciones públicas',
+    time: 'Martes 01 Dic. – 03:10 p.m.',
+    bio: 'Periodista y propietario de Premium Comunicaciones, agencia de relaciones públicas. Su trayectoria reúne el ejercicio periodístico y la gestión de comunicación y relaciones públicas desde el ámbito de agencia.'
+  },
+  {
+    id: 20,
+    name: 'Julián Duque Rojas',
+    role: 'Comunicación Estratégica',
+    company: '',
+    country: 'Colombia',
+    flagEmoji: '🇨🇴',
+    photo: julianDuqueImg,
+    topic: 'Comunicar sin fronteras: nuevos retos de la comunicación global',
+    time: 'Martes 01 Dic. – 03:10 p.m.',
+    bio: 'Comunicador social de la Universidad Católica Luis Amigó, sede Manizales. Su participación aborda la comunicación desde una perspectiva estratégica e internacional, según la información compartida por la organización.'
+  },
+  {
+    id: 21,
+    name: 'Yesenia Cieza',
+    role: 'Publicidad',
+    company: 'ACTIVA BTL',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: yeseniaCiezaImg,
+    topic: 'De creadora a marca: cómo el contenido digital abre oportunidades en la industria publicitaria',
+    time: 'Martes 01 Dic. – 03:10 p.m.',
+    bio: 'Influencer, creadora de contenido UGC, jefa de Operaciones Lima de ACTIVA BTL y representante de marca de Brava Producciones. Su experiencia integra creación de contenido, trabajo con marcas y activaciones BTL.'
+  },
+  {
+    id: 22,
+    name: 'QUEBUENARDO',
+    role: 'Comunicación Digital',
+    company: 'YouTube',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: quebuenardoImg,
+    topic: 'De un video a una comunidad: el mundo de la creación digital',
+    time: 'Martes 01 Dic. – 08:00 p.m.',
+    bio: 'Influencer y creador de contenido en YouTube, con una comunidad de aproximadamente 192 mil suscriptores, según la información proporcionada por la organización. Su experiencia se vincula con la creación de contenidos y el desarrollo de audiencias digitales.'
+  },
+  {
+    id: 23,
+    name: 'Joseph Ovalle',
+    role: 'Creador de contenido',
+    company: 'TikTok',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: josephOvalleImg,
+    topic: 'Creadores digitales: secretos, estrategias y el poder de los algoritmos',
+    time: 'Miércoles 02 Dic. – 10:00 a.m.',
+    bio: 'Artista, promotor cultural, creador de contenido, embajador de Marca Perú y comunicador de profesión. Cuenta con más de 2 millones de seguidores en TikTok.'
+  },
+  {
+    id: 24,
+    name: 'Anibal Narro',
+    role: 'Camarógrafo',
+    company: '',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: anibalNarroImg,
+    topic: 'Detrás de cámaras: el fascinante mundo de la producción televisiva',
+    time: 'Miércoles 02 Dic. – 08:00 a.m.',
+    bio: 'Camarógrafo profesional con más de 20 años de experiencia en televisión, comunicación audiovisual y estratégica.'
+  },
+  {
+    id: 25,
+    name: 'Kevin Rodriguez',
+    role: 'Comunicador audiovisual',
+    company: '',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: kevinRodriguezImg,
+    topic: 'Marcas que impactan: el arte de crear spots publicitarios',
+    time: 'Miércoles 02 Dic. – 05:00 p.m.',
+    bio: 'Comunicador audiovisual con 10 años de experiencia. Ha trabajado con marcas como Nike, Maui and Sons, Kids made here, Kayrós inmobiliaria, Nauta inmobiliaria, Pinturas Anypsa, Revanesse, UPN, entre otras.'
+  },
+  {
+    id: 26,
+    name: 'Samuel Cortéz',
+    role: 'Periodista',
+    company: 'Latina Televisión',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: samuelCortezImg,
+    topic: 'Periodismo en las calles: historias, desafíos y realidades',
+    time: 'Miércoles 02 Dic. – 07:00 p.m.',
+    bio: 'Periodista con experiencia en televisión, radio, medios digitales y producción de contenidos. Forma parte de Latina Televisión, consolidándose como reportero de Reporte Semanal y Latina Espectáculos.'
+  },
+  {
+    id: 27,
+    name: 'Milagros Maccha',
+    role: 'Periodista',
+    company: '',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: milagrosMacchaImg,
+    topic: 'Conquista el mundo digital: tendencias y oportunidades del marketing en redes sociales',
+    time: 'Miércoles 02 Dic. – 08:00 p.m.',
+    bio: 'Periodista con 5 años de experiencia en estrategia, planificación y analítica de contenidos multimedia para medios como La República, Latina Televisión y Bethel Radio.'
+  },
+  {
+    id: 28,
+    name: 'Pedro Jacinto',
+    role: 'Ejecutivo de comunicaciones',
+    company: 'CEO de CEMTA',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: pedroJacintoImg,
+    topic: 'De emprendedor a empresario: claves para convertir una idea en negocio',
+    time: 'Miércoles 02 Dic. – 08:00 p.m.',
+    bio: 'Empresario y ejecutivo de los sectores educativo y de comunicaciones con cerca de 20 años de experiencia. Fundador y CEO de CEMTA; cofundador de Corporación Juventud Científica e Inmobiliaria Gamboa.'
+  },
+  {
+    id: 29,
+    name: 'Juan Carlo Cam',
+    role: 'Comunicador Audiovisual',
+    company: 'CEMTA',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: juanCarloCamImg,
+    topic: 'De emprendedor a empresario: claves para convertir una idea en negocio',
+    time: 'Miércoles 02 Dic. – 08:00 p.m.',
+    bio: 'Comunicador Audiovisual de Medios Digitales, ha trabajado en organizaciones como la UNMSM, Vonex, Grupo Ciencias, Aula 20, CEMTA y QF. Fundador de la agencia de marketing digital Camrode.'
+  },
+  {
+    id: 30,
+    name: 'Yesael Vargas',
+    role: 'Creadora de contenido',
+    company: 'Redes sociales',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: yesaelVargasImg,
+    topic: 'Contenido que conecta: estrategias para conquistar las audiencias digitales',
+    time: 'Miércoles 02 Dic. – 09:00 p.m.',
+    bio: 'Creadora de contenido educativo desde 2021 (cuenta con +90k seguidores en Instagram y +80k en TikTok), enfocada en tips de estudio, organización y consejos para el ingreso a universidades públicas.'
+  },
+  {
+    id: 31,
+    name: 'Jesús León',
+    role: 'Creador de contenido',
+    company: 'Redes sociales',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: jesusLeonImg,
+    topic: 'Contenido que conecta: estrategias para conquistar las audiencias digitales',
+    time: 'Miércoles 02 Dic. – 09:00 p.m.',
+    bio: 'Creador de contenido peruano, cuenta con más de 587 mil seguidores en TikTok. Ha incursionado en la música urbana con canciones como YAPEKREDITO, TUBOO, #TANVO y NO TIO NO.'
+  },
+  {
+    id: 32,
+    name: 'Pedro Salazar',
+    role: 'Marketing',
+    company: 'Redes sociales',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: pedroSalazarImg,
+    topic: 'Growth Marketing y estrategias digitales para el posicionamiento de marcas en la era digital.',
+    time: 'Viernes 04 Dic. – Por confirmar',
+    bio: 'Cuenta con más de 8 años liderando estrategias de marketing 360° en entornos B2B y B2C. Especialista en Meta Ads, TikTok Ads, Google Ads, y Growth Marketing, con experiencia en telecomunicaciones, educación, salud, retail y tecnología.'
+  },
+  {
+    id: 33,
+    name: 'Giann Simón Laveriano',
+    role: 'Marketing',
+    company: 'Redes sociales',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: giaanSimonImg,
+    topic: 'La comunicación y multimedia: del periodismo tradicional a las plataformas digitales.',
+    time: 'Viernes 04 Dic. – 09:30 a.m.',
+    bio: 'Con experiencia en Radio y Televisión a nivel regional y nacional. Se desempeña como Asistente y Jefe de Prensa de Unión Huaral, Community Manager en empresas digitales y Diseñador Gráfico.'
+  },
+  {
+    id: 34,
+    name: 'Nicole Carrizales',
+    role: '',
+    company: '',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: nicoleCarrizalesImg,
+    topic: 'Detrás del Filtro: Descubre tu perfil de comunicación y estrategias de una reclutadora para comunicadores del futuro.',
+    time: 'Viernes 04 Dic. – Por confirmar',
+    bio: 'Reclutadora especializada en selección de talento y empleabilidad. Posee experiencia en procesos de reclutamiento, evaluación de perfiles y desarrollo profesional para jóvenes comunicadores.'
+  },
+  {
+    id: 35,
+    name: 'Raquel Arrunátegui',
+    role: 'Periodista',
+    company: 'Asociación Nacional de Periodistas del Perú',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: raquelArrunateguiImg,
+    topic: 'Periodismo en la Era Digital',
+    time: 'Viernes 04 Dic. – 09:00 a.m.',
+    bio: 'Directora de la Asociación Nacional de Periodistas (ANP). Profesional con amplia trayectoria en el ámbito periodístico y defensa de la libertad de prensa.'
   }
 ];
 

@@ -285,7 +285,7 @@ export const SPEAKERS: Speaker[] = [
     flagEmoji: '🇵🇪',
     photo: yeseniaCiezaImg,
     topic: 'De creadora a marca: cómo el contenido digital abre oportunidades en la industria publicitaria',
-    time: 'Martes 01 Dic. – 03:10 p.m.',
+    time: 'Martes 01 Dic. – 07:00 p.m.',
     bio: 'Influencer, creadora de contenido UGC, jefa de Operaciones Lima de ACTIVA BTL y representante de marca de Brava Producciones. Su experiencia integra creación de contenido, trabajo con marcas y activaciones BTL.'
   },
   {
@@ -552,6 +552,14 @@ export const AGENDA_DATA: Record<number, AgendaItem[]> = {
     },
     {
       id: 'd2-6',
+      time: '07:00 p.m.',
+      title: 'De creadora a marca: cómo el contenido digital abre oportunidades en la industria publicitaria',
+      speaker: 'Yesenia Cieza',
+      location: 'Google Lab',
+      type: 'Ponencia'
+    },
+    {
+      id: 'd2-7',
       time: '08:00 p.m.',
       title: 'De un video a una comunidad: el mundo de la creación digital',
       speaker: 'QUEBUENARDO',

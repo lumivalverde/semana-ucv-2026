@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet" />
     <link rel="icon" type="image/png" href="./favicon.png">
+    <link rel="preload" as="image" href="/assets/aistudio/logo-com360_7fa37790.png" fetchpriority="high" />
     <link rel="preload" as="image" href="/croquis-ucv.webp" fetchpriority="high" />
     <link rel="preload" as="image" href="/flyer-sabado.webp" fetchpriority="high" />
   </head>
@@ -174,21 +175,16 @@
         justify-content: center;
       }
 
-      .com360-pre-title {
-        font-family: "Archivo Black", Impact, "Arial Black", sans-serif;
-        font-weight: 900;
-        font-size: 40px;
-        line-height: 1;
-        letter-spacing: -0.02em;
-        color: #ffffff;
-        margin: 0;
-      }
-
-      .com360-pre-360 {
-        background: linear-gradient(90deg, #a855f7 0%, #3b82f6 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
+      .com360-pre-logo {
+        width: 136px;
+        max-width: 82%;
+        height: auto;
+        object-fit: contain;
+        display: block;
+        user-select: none;
+        -webkit-user-select: none;
+        animation: latidoLogo 1.4s ease-in-out infinite;
+        will-change: transform, filter;
       }
 
       .com360-waves {
@@ -291,6 +287,29 @@
         50% { transform: scaleY(1); opacity: 1; }
       }
 
+      @keyframes latidoLogo {
+        0% {
+          transform: scale(1);
+          filter: drop-shadow(0 0 2px rgba(168, 85, 247, 0.2));
+        }
+        14% {
+          transform: scale(1.10);
+          filter: drop-shadow(0 0 14px rgba(168, 85, 247, 0.75));
+        }
+        28% {
+          transform: scale(1);
+          filter: drop-shadow(0 0 2px rgba(168, 85, 247, 0.2));
+        }
+        42% {
+          transform: scale(1.07);
+          filter: drop-shadow(0 0 14px rgba(168, 85, 247, 0.75));
+        }
+        70%, 100% {
+          transform: scale(1);
+          filter: drop-shadow(0 0 2px rgba(168, 85, 247, 0.2));
+        }
+      }
+
       @media (max-width: 640px) {
         .com360-pre-glow {
           width: 280px;
@@ -316,8 +335,8 @@
           width: 128px;
           height: 128px;
         }
-        .com360-pre-title {
-          font-size: 29px;
+        .com360-pre-logo {
+          width: 102px;
         }
         .com360-waves {
           margin-top: 20px;
@@ -353,7 +372,14 @@
           <div class="com360-ring com360-ring-middle"></div>
           <div class="com360-ring com360-ring-inner"></div>
           <div class="com360-core-circle">
-            <div class="com360-pre-title">COM<span class="com360-pre-360">360</span></div>
+            <img
+              src="/assets/aistudio/logo-com360_7fa37790.png"
+              alt="COM360"
+              class="com360-pre-logo"
+              fetchpriority="high"
+              decoding="sync"
+              draggable="false"
+            />
           </div>
         </div>
 

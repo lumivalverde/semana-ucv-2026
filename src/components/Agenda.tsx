@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import { Clock, MapPin, ArrowRight } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Clock, MapPin, ArrowRight, Calendar, ChevronDown, Check } from 'lucide-react';
 import { AGENDA_DATA } from '../data';
 
 export const Agenda: React.FC = () => {
   const [activeDay, setActiveDay] = useState<number>(1);
+  const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const days = [
     { num: 1, label: 'Día 1: Lun 30 Nov' },
@@ -14,6 +16,22 @@ export const Agenda: React.FC = () => {
     { num: 6, label: 'Día 6: Sáb 05 Dic' },
   ];
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, []);
+
+  const activeDayObj = days.find((day) => day.num === activeDay) || days[0];
   const currentItems = AGENDA_DATA[activeDay] || [];
 
   return (
@@ -34,24 +52,82 @@ export const Agenda: React.FC = () => {
           </p>
         </div>
 
-        {/* Day Selector Tabs */}
-        <div className="flex items-center justify-center gap-2 sm:gap-4 overflow-x-auto pb-4 mb-10 no-scrollbar">
-          {days.map((day) => {
-            const isActive = activeDay === day.num;
-            return (
-              <button
-                key={day.num}
-                onClick={() => setActiveDay(day.num)}
-                className={`px-5 py-3 rounded-xl font-bold text-sm transition-all duration-300 whitespace-nowrap cursor-pointer shadow-lg shadow-black ${
-                  isActive
-                    ? 'bg-[#C6FF00] text-black border-2 border-[#C6FF00] shadow-lg shadow-[#C6FF00]/25 scale-105 font-heading font-black'
-                    : 'bg-[#090414] text-slate-200 hover:bg-[#C6FF00] hover:text-black border border-[#7135F5]/50 hover:border-[#C6FF00]'
+        {/* Day Selector (Mobile Dropdown + Desktop Tabs) */}
+        <div className="mb-10">
+          {/* Mobile Dropdown */}
+          <div ref={dropdownRef} className="sm:hidden relative max-w-md mx-auto">
+            <button
+              type="button"
+              onClick={() => setIsDropdownOpen((prev) => !prev)}
+              aria-expanded={isDropdownOpen}
+              aria-haspopup="listbox"
+              className="w-full px-5 py-3.5 rounded-xl bg-[#090414] border-2 border-[#C6FF00] text-white shadow-lg shadow-[#C6FF00]/20 flex items-center justify-between gap-3 cursor-pointer transition-all duration-300"
+            >
+              <span className="flex items-center gap-2.5 min-w-0">
+                <Calendar className="w-4 h-4 text-[#C6FF00] shrink-0" />
+                <span className="font-heading font-black text-sm text-[#C6FF00] truncate">
+                  {activeDayObj.label}
+                </span>
+              </span>
+              <ChevronDown
+                className={`w-5 h-5 text-[#C6FF00] shrink-0 transition-transform duration-300 ${
+                  isDropdownOpen ? 'rotate-180' : ''
                 }`}
+              />
+            </button>
+
+            {isDropdownOpen && (
+              <div
+                role="listbox"
+                aria-label="Seleccionar día de la agenda"
+                className="absolute left-0 right-0 z-30 mt-2 rounded-2xl bg-[#080312] border border-[#7135F5]/60 shadow-[0_20px_50px_rgba(0,0,0,0.95)] overflow-hidden divide-y divide-[#7135F5]/20"
               >
-                {day.label}
-              </button>
-            );
-          })}
+                {days.map((day) => {
+                  const isActive = activeDay === day.num;
+                  return (
+                    <button
+                      key={day.num}
+                      type="button"
+                      role="option"
+                      aria-selected={isActive}
+                      onClick={() => {
+                        setActiveDay(day.num);
+                        setIsDropdownOpen(false);
+                      }}
+                      className={`w-full px-5 py-3.5 text-left text-sm flex items-center justify-between gap-3 transition-colors cursor-pointer ${
+                        isActive
+                          ? 'bg-[#C6FF00] text-black font-heading font-black'
+                          : 'text-slate-200 font-bold hover:bg-[#7135F5]/20 hover:text-[#C6FF00]'
+                      }`}
+                    >
+                      <span>{day.label}</span>
+                      {isActive && <Check className="w-4 h-4 text-black shrink-0" />}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+
+          {/* Desktop Day Selector Tabs */}
+          <div className="hidden sm:flex items-center justify-center gap-2 sm:gap-4 overflow-x-auto pb-4 no-scrollbar">
+            {days.map((day) => {
+              const isActive = activeDay === day.num;
+              return (
+                <button
+                  key={day.num}
+                  onClick={() => setActiveDay(day.num)}
+                  className={`px-5 py-3 rounded-xl font-bold text-sm transition-all duration-300 whitespace-nowrap cursor-pointer shadow-lg shadow-black ${
+                    isActive
+                      ? 'bg-[#C6FF00] text-black border-2 border-[#C6FF00] shadow-lg shadow-[#C6FF00]/25 scale-105 font-heading font-black'
+                      : 'bg-[#090414] text-slate-200 hover:bg-[#C6FF00] hover:text-black border border-[#7135F5]/50 hover:border-[#C6FF00]'
+                  }`}
+                >
+                  {day.label}
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         {/* Schedule Cards Container */}

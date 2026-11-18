@@ -26,6 +26,7 @@ const SPONSOR_LOGOS: SponsorItem[] = [
   { name: 'Lucky Motos', logo: luckyMotos },
   { name: 'Manía por el Fútbol', logo: maniaPorElFutbol },
   { name: 'Dulcería Sra. Eva', logo: pasteleriaSraEva },
+  { name: 'Clínica Oncológica Peruana', logo: '/assets/aistudio/CLINICA_c2cec2a9.webp' },
 ];
 
 export const SponsorsMarquee: React.FC = () => {

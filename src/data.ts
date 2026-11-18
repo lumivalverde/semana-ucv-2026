@@ -52,7 +52,7 @@ export const SPEAKERS: Speaker[] = [
     id: 2,
     name: 'Miriam Cahuana',
     role: 'Periodista',
-    company: 'RPP Noticias',
+    company: 'Panamericana',
     country: 'Perú',
     flagEmoji: '🇵🇪',
     photo: miriamCahuanaImg,
@@ -64,13 +64,13 @@ export const SPEAKERS: Speaker[] = [
     id: 3,
     name: 'César Santillan',
     role: 'Periodista',
-    company: 'TV Perú / IRTP',
+    company: 'TV Perú',
     country: 'Perú',
     flagEmoji: '🇵🇪',
     photo: cesarSantillanImg,
     topic: 'En primera línea: el desafío de cubrir grandes acontecimientos y eventos de interés público',
     time: 'Jueves 03 Dic - 12:00 p.m.',
-    bio: 'Periodista de TV Perú e IRTP, con 11 años de experiencia en cobertura periodística política y policial, producción de programas informativos y comunicación social. Bachiller en Periodismo y egresado de la maestría en Comunicación y Marketing.'
+    bio: 'Periodista de TV Perú e IRTP, con 13 años de experiencia en cobertura periodística política y policial, producción de programas informativos y comunicación social. Bachiller en Periodismo y egresado de la maestría en Comunicación y Marketing.'
   },
   {
     id: 4,

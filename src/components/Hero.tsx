@@ -81,12 +81,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRegister: _onOpenRegister }) =
             {/* Event status badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0C061A] border border-[#7135F5]/60 text-[#C6FF00] text-xs sm:text-sm font-semibold uppercase tracking-wider shadow-md shadow-black">
               <span className="w-2.5 h-2.5 rounded-full bg-[#C6FF00] animate-ping" />
-              Semana comunicadora 2026
+              SEMANA DE LA COMUNICACIÓN 2026
             </div>
 
 
             <p className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
-              ¡Se viene la primera edición del gran encuentro de la comunicación! Cinco días, grandes referentes y experiencias que conectarán el periodismo, el marketing, la producción audiovisual y las nuevas tecnologías. ¡No te lo puedes perder!
+              ¡Se viene la primera edición del gran encuentro de la comunicación! Seis días, grandes referentes y experiencias que conectarán el periodismo, el marketing, la producción audiovisual y las nuevas tecnologías. ¡No te lo puedes perder!
             </p>
 
             {/* Key Event Details Pills */}
@@ -97,7 +97,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRegister: _onOpenRegister }) =
               </div>
               <div className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#090414] border border-[#7135F5]/40 shadow-md shadow-black">
                 <MapPin className="w-4 h-4 text-[#C6FF00]" />
-                <span className="text-slate-200">Campus UCV - Los Olivos</span>
+                <span className="text-slate-200">UCV Campus - Los Olivos</span>
               </div>
             </div>
 

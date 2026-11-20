@@ -124,11 +124,13 @@ export const Speakers: React.FC = () => {
                                                               ? 'w-full -mt-[21px] h-[276px] object-top'
                                                               : index === 30 || index === 34
                                                                 ? 'w-full -mt-[44px] h-[301px] object-top'
-                                                                : index === 32
-                                                                  ? 'w-full -mt-[59px] h-[315px] object-top'
-                                                                  : index === 33
-                                                                    ? 'w-full -mt-[11px] h-[269px] object-top'
-                                                                    : 'w-full h-full object-top'
+                                                                : index === 31
+                                                                  ? 'w-full -mt-[67px] h-[323px] object-top'
+                                                                  : index === 32
+                                                                    ? 'w-full -mt-[59px] h-[315px] object-top'
+                                                                    : index === 33
+                                                                      ? 'w-full -mt-[11px] h-[269px] object-top'
+                                                                      : 'w-full h-full object-top'
                       } object-cover transition-transform duration-500 group-hover:scale-105`}
                     />
                     <div className="absolute top-3 right-3 bg-[#030108]/90 backdrop-blur-md border border-[#7135F5]/50 text-xs text-white px-2.5 py-1 rounded-full font-semibold flex items-center gap-1.5 shadow-md shadow-black">

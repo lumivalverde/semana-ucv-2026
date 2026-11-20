@@ -86,8 +86,10 @@ export const Speakers: React.FC = () => {
                       className={`${
                         index === 0
                           ? 'p-0 mx-0 -mt-[50px] mb-0 w-[268px] h-[306px] object-top'
-                          : index === 3
-                            ? 'w-full -mt-[61px] h-[317px] object-top'
+                          : index === 1
+                            ? 'w-full -mt-[41px] h-[298px] object-top'
+                            : index === 3
+                              ? 'w-full -mt-[61px] h-[317px] object-top'
                             : index === 4
                               ? 'w-full -mt-[49px] h-[306px] object-top'
                               : index === 6

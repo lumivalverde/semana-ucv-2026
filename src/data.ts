@@ -30,6 +30,7 @@ import pedroJacintoImg from './assets/images/speakers/pedro_jacinto.webp';
 import juanCarloCamImg from './assets/images/speakers/juan_carlo_cam.webp';
 import yesaelVargasImg from './assets/images/speakers/yesael_vargas.webp';
 import jesusLeonImg from './assets/images/speakers/jesus_leon.webp';
+import pedroSalazarImg from './assets/images/speakers/pedro_salazar.webp';
 import giaanSimonImg from './assets/images/speakers/giaan_simon_laveriano.webp';
 import nicoleCarrizalesImg from './assets/images/speakers/nicole_carrizales.webp';
 import raquelArrunateguiImg from './assets/images/speakers/raquel_arrunategui.webp';
@@ -414,7 +415,7 @@ export const SPEAKERS: Speaker[] = [
     company: 'Redes sociales',
     country: 'Perú',
     flagEmoji: '🇵🇪',
-    photo: '/assets/aistudio/PEDRO_SALAZAR_75a5837d.webp',
+    photo: pedroSalazarImg,
     topic: 'Growth Marketing y estrategias digitales para el posicionamiento de marcas en la era digital.',
     time: 'Viernes 04 Dic. – Por confirmar',
     bio: 'Cuenta con más de 8 años liderando estrategias de marketing 360° en entornos B2B y B2C. Especialista en Meta Ads, TikTok Ads, Google Ads, y Growth Marketing, con experiencia en telecomunicaciones, educación, salud, retail y tecnología.'

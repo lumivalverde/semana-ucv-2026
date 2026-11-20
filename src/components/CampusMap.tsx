@@ -152,7 +152,7 @@ export const CampusMap: React.FC = () => {
 
             {/* Imagen panorámica del campus */}
             <img
-              src="/croquis-ucv.webp"
+              src="./croquis-ucv.webp"
               alt="Croquis Campus UCV"
               className="img-campus select-none"
               fetchPriority="high"

@@ -9,6 +9,7 @@ import intimaBiansol from '../assets/images/sponsors/intima_biansol.webp';
 import luckyMotos from '../assets/images/sponsors/lucky_motos.webp';
 import maniaPorElFutbol from '../assets/images/sponsors/mania_por_el_futbol.webp';
 import pasteleriaSraEva from '../assets/images/sponsors/pasteleria_sra_eva.webp';
+import clinicaOncologicaImg from '../assets/images/sponsors/clinica_oncologica_peruana.webp';
 
 interface SponsorItem {
   name: string;
@@ -26,7 +27,7 @@ const SPONSOR_LOGOS: SponsorItem[] = [
   { name: 'Lucky Motos', logo: luckyMotos },
   { name: 'Manía por el Fútbol', logo: maniaPorElFutbol },
   { name: 'Dulcería Sra. Eva', logo: pasteleriaSraEva },
-  { name: 'Clínica Oncológica Peruana', logo: '/assets/aistudio/CLINICA_c2cec2a9.webp' },
+  { name: 'Clínica Oncológica Peruana', logo: clinicaOncologicaImg },
 ];
 
 export const SponsorsMarquee: React.FC = () => {

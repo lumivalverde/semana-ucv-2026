@@ -35,6 +35,7 @@ import pedroSalazarImg from './assets/images/speakers/pedro_salazar.webp';
 import giaanSimonImg from './assets/images/speakers/giaan_simon_laveriano.webp';
 import nicoleCarrizalesImg from './assets/images/speakers/nicole_carrizales.webp';
 import raquelArrunateguiImg from './assets/images/speakers/raquel_arrunategui.webp';
+import comunicaImg from './assets/images/speakers/comunica.webp';
 
 export const SPEAKERS: Speaker[] = [
   {
@@ -468,6 +469,18 @@ export const SPEAKERS: Speaker[] = [
     topic: 'Periodismo en la Era Digital',
     time: 'Viernes 04 Dic. – 09:00 a.m.',
     bio: 'Directora de la Asociación Nacional de Periodistas (ANP). Profesional con amplia trayectoria en el ámbito periodístico y defensa de la libertad de prensa.'
+  },
+  {
+    id: 37,
+    name: 'Feria de ComunicAcción',
+    role: 'Actividad académica',
+    company: 'Escuela Profesional de Ciencias de la Comunicación',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: comunicaImg,
+    topic: 'Auditorio Los Caynas',
+    time: 'Viernes 04 Dic. – 10:00 a.m.',
+    bio: 'La Feria de ComunicAcción es una jornada de la Escuela de Ciencias de la Comunicación para mostrar lo que se crea en nuestra escuela. En la mañana se vivirán podcasts en vivo y exposición de trabajos de estudiantes. Y por la tarde se presentarán los talentos de la carrera y se entregarán los Premios ComunicAcción. ¡Te esperamos!'
   }
 ];
 

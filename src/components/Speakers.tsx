@@ -132,7 +132,9 @@ export const Speakers: React.FC = () => {
                                                                       ? 'w-full -mt-[59px] h-[315px] object-top'
                                                                       : speaker.id === 34
                                                                         ? 'w-full -mt-[11px] h-[269px] object-top'
-                                                                        : 'w-full h-full object-top'
+                                                                        : speaker.id === 37
+                                                                          ? 'w-full h-full object-center'
+                                                                          : 'w-full h-full object-top'
                       } object-cover transition-transform duration-500 group-hover:scale-105`}
                     />
                     <div className="absolute top-3 right-3 bg-[#030108]/90 backdrop-blur-md border border-[#7135F5]/50 text-xs text-white px-2.5 py-1 rounded-full font-semibold flex items-center gap-1.5 shadow-md shadow-black">

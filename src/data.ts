@@ -1,4 +1,5 @@
 import { Speaker, AgendaItem, Workshop } from './types';
+import luisRamosImg from './assets/images/speakers/luis_fernando_ramos.webp';
 import jorgeMarioPerezImg from './assets/images/speakers/jorge_mario_perez.png';
 import miriamCahuanaImg from './assets/images/speakers/miriam_cahuana.png';
 import cesarSantillanImg from './assets/images/speakers/cesar_santillan.png';
@@ -36,6 +37,18 @@ import nicoleCarrizalesImg from './assets/images/speakers/nicole_carrizales.webp
 import raquelArrunateguiImg from './assets/images/speakers/raquel_arrunategui.webp';
 
 export const SPEAKERS: Speaker[] = [
+  {
+    id: 36,
+    name: 'Luis Fernando Ramos',
+    role: 'Productor Audiovisual',
+    company: 'Insaei Impex',
+    country: 'Perú',
+    flagEmoji: '🇵🇪',
+    photo: luisRamosImg,
+    topic: 'Edición de alto impacto: Cómo dominar el ritmo, los efectos y el sonido para elevar cualquier pieza audiovisual',
+    time: 'Viernes 04 Dic. – 10:00 a.m.',
+    bio: 'Realizador y editor audiovisual con 7 años de experiencia potenciando marcas personales y publicidades en redes sociales. Coordinador Audiovisual en la Cámara Peruana de Cortometrajes (CPC CINE), estuvo a cargo de la postproducción del documental premiado por la Cámara de Comercio de Lima "Manos que siembran agua" (dirigido por Giuliana Ramos) y actualmente es Jefe Audiovisual en Insaei Impex, creando contenido para campañas, podcasts y streaming para proyectos del rubro fitness y empresariales para marcas como: Impulse Fitness, Escuela de Empresarios del Fitness y Enrique Fernández.'
+  },
   {
     id: 1,
     name: 'Jorge Mario Pérez',
@@ -92,7 +105,7 @@ export const SPEAKERS: Speaker[] = [
     country: 'Perú',
     flagEmoji: '🇵🇪',
     photo: jesusPortuguezImg,
-    topic: 'Más allá de las pantallas: narrativas transmedia y el futuro de los medios públicos',
+    topic: 'La locución y el poder de tu voz',
     time: 'Jueves 03 Dic – 03:00 p.m.',
     bio: 'Comunicador Audiovisual Multimedia y locutor comercial con 5 años de trayectoria. Es la voz oficial de promociones de tv de Metro, y voz de marcas como KFC, Pizza Hut, BCP y Pepsi.'
   },

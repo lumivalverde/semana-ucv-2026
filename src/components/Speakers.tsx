@@ -69,7 +69,7 @@ export const Speakers: React.FC = () => {
             id="speakers-track"
             className="flex gap-6 transition-transform duration-500 ease-out no-scrollbar overflow-x-auto snap-x snap-mandatory pb-4"
           >
-            {SPEAKERS.map((speaker, index) => (
+            {SPEAKERS.map((speaker) => (
               <div
                 key={speaker.id}
                 onClick={() => setSelectedSpeaker(speaker)}
@@ -84,55 +84,55 @@ export const Speakers: React.FC = () => {
                       fetchPriority="high"
                       decoding="sync"
                       className={`${
-                        index === 0
+                        speaker.id === 1
                           ? 'p-0 mx-0 -mt-[50px] mb-0 w-[268px] h-[306px] object-top'
-                          : index === 1
+                          : speaker.id === 2
                             ? 'w-full -mt-[41px] h-[298px] object-top'
-                            : index === 3
+                            : speaker.id === 4
                               ? 'w-full -mt-[61px] h-[317px] object-top'
-                            : index === 4
-                              ? 'w-full -mt-[49px] h-[306px] object-top'
-                              : index === 6
-                                ? 'w-full -mt-[50px] h-[305px] object-top'
-                                : index === 7
-                                  ? 'w-full -mt-[32px] h-[289px] object-top'
-                                  : index === 8
-                                    ? 'w-full -mt-[25px] mb-0 h-[281px] object-top'
-                                    : index === 9
-                                      ? 'w-full -mt-[70px] h-[326px] object-top'
-                                      : index === 10 || index === 12
-                                        ? 'w-full -mt-[60px] h-[316px] object-top'
-                                        : index === 13 || index === 15 || index === 16
-                                          ? 'w-full -mt-[40px] h-[296px] object-top'
-                                          : index === 14
-                                            ? 'w-full -mt-[75px] h-[331px] object-top'
-                                            : index === 17
-                                              ? 'w-full -mt-[45px] h-[303px] object-top'
-                                              : index === 18
-                                                ? 'w-full -mt-[95px] h-[352px] object-top'
-                                                : index === 21 || index === 23 || index === 24
-                                                  ? 'w-full -mt-[60px] h-[316px] object-top'
-                                                  : index === 22
-                                                    ? 'w-full -mt-[50px] h-[307px] object-top'
-                                                    : index === 25
-                                                      ? 'w-full -mt-[132px] h-[390px] object-top'
-                                                      : index === 26
-                                                        ? 'w-full -mt-[23px] h-[278px] object-top'
-                                                        : index === 27
-                                                          ? 'w-full -mt-[131px] h-[389px] object-top'
-                                                          : index === 28
-                                                            ? 'w-full -mt-[60px] mb-0 mx-0 p-0 h-[316px] object-top'
-                                                            : index === 29
-                                                              ? 'w-full -mt-[21px] h-[276px] object-top'
-                                                              : index === 30 || index === 34
-                                                                ? 'w-full -mt-[44px] h-[301px] object-top'
-                                                                : index === 31
-                                                                  ? 'w-full -mt-[67px] h-[323px] object-top'
-                                                                  : index === 32
-                                                                    ? 'w-full -mt-[59px] h-[315px] object-top'
-                                                                    : index === 33
-                                                                      ? 'w-full -mt-[11px] h-[269px] object-top'
-                                                                      : 'w-full h-full object-top'
+                              : speaker.id === 5
+                                ? 'w-full -mt-[49px] h-[306px] object-top'
+                                : speaker.id === 7
+                                  ? 'w-full -mt-[50px] h-[305px] object-top'
+                                  : speaker.id === 8
+                                    ? 'w-full -mt-[32px] h-[289px] object-top'
+                                    : speaker.id === 9
+                                      ? 'w-full -mt-[25px] mb-0 h-[281px] object-top'
+                                      : speaker.id === 10
+                                        ? 'w-full -mt-[70px] h-[326px] object-top'
+                                        : speaker.id === 11 || speaker.id === 13
+                                          ? 'w-full -mt-[60px] h-[316px] object-top'
+                                          : speaker.id === 14 || speaker.id === 16 || speaker.id === 17
+                                            ? 'w-full -mt-[40px] h-[296px] object-top'
+                                            : speaker.id === 15
+                                              ? 'w-full -mt-[75px] h-[331px] object-top'
+                                              : speaker.id === 18
+                                                ? 'w-full -mt-[45px] h-[303px] object-top'
+                                                : speaker.id === 19
+                                                  ? 'w-full -mt-[95px] h-[352px] object-top'
+                                                  : speaker.id === 22 || speaker.id === 24 || speaker.id === 25
+                                                    ? 'w-full -mt-[60px] h-[316px] object-top'
+                                                    : speaker.id === 23
+                                                      ? 'w-full -mt-[50px] h-[307px] object-top'
+                                                      : speaker.id === 26
+                                                        ? 'w-full -mt-[132px] h-[390px] object-top'
+                                                        : speaker.id === 27
+                                                          ? 'w-full -mt-[23px] h-[278px] object-top'
+                                                          : speaker.id === 28
+                                                            ? 'w-full -mt-[131px] h-[389px] object-top'
+                                                            : speaker.id === 29
+                                                              ? 'w-full -mt-[60px] mb-0 mx-0 p-0 h-[316px] object-top'
+                                                              : speaker.id === 30
+                                                                ? 'w-full -mt-[21px] h-[276px] object-top'
+                                                                : speaker.id === 31 || speaker.id === 35
+                                                                  ? 'w-full -mt-[44px] h-[301px] object-top'
+                                                                  : speaker.id === 32
+                                                                    ? 'w-full -mt-[67px] h-[323px] object-top'
+                                                                    : speaker.id === 33
+                                                                      ? 'w-full -mt-[59px] h-[315px] object-top'
+                                                                      : speaker.id === 34
+                                                                        ? 'w-full -mt-[11px] h-[269px] object-top'
+                                                                        : 'w-full h-full object-top'
                       } object-cover transition-transform duration-500 group-hover:scale-105`}
                     />
                     <div className="absolute top-3 right-3 bg-[#030108]/90 backdrop-blur-md border border-[#7135F5]/50 text-xs text-white px-2.5 py-1 rounded-full font-semibold flex items-center gap-1.5 shadow-md shadow-black">
